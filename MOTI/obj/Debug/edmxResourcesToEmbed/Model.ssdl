@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище Database1Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Alternative">
+    <Key>
+      <PropertyRef Name="IdAlt" />
+    </Key>
+    <Property Name="IdAlt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Criterion">
+    <Key>
+      <PropertyRef Name="IdCrit" />
+    </Key>
+    <Property Name="IdCrit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CName" Type="nvarchar(max)" />
+    <Property Name="CRange" Type="int" />
+    <Property Name="CWeight" Type="int" />
+    <Property Name="OptimType" Type="nvarchar(max)" />
+    <Property Name="EdIzmer" Type="nvarchar(max)" />
+    <Property Name="ScaleType" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="LPR">
+    <Key>
+      <PropertyRef Name="IdLPR" />
+    </Key>
+    <Property Name="IdLPR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LName" Type="nvarchar(max)" />
+    <Property Name="LRange" Type="int" />
+  </EntityType>
+  <EntityType Name="Mark">
+    <Key>
+      <PropertyRef Name="IdMark" />
+    </Key>
+    <Property Name="IdMark" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdCrit" Type="int" Nullable="false" />
+    <Property Name="MName" Type="nvarchar(max)" />
+    <Property Name="MRange" Type="int" />
+    <Property Name="NumMark" Type="int" />
+    <Property Name="NormMark" Type="int" />
+  </EntityType>
+  <EntityType Name="Result">
+    <Key>
+      <PropertyRef Name="IdRes" />
+    </Key>
+    <Property Name="IdRes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdLPR" Type="int" Nullable="false" />
+    <Property Name="IdAlt" Type="int" Nullable="false" />
+    <Property Name="Range" Type="int" />
+    <Property Name="AWeight" Type="int" />
+  </EntityType>
+  <EntityType Name="Vector">
+    <Key>
+      <PropertyRef Name="IdVect" />
+    </Key>
+    <Property Name="IdVect" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdAlt" Type="int" Nullable="false" />
+    <Property Name="IdMark" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Mark_ToCriterion">
+    <End Role="Criterion" Type="Self.Criterion" Multiplicity="1" />
+    <End Role="Mark" Type="Self.Mark" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Criterion">
+        <PropertyRef Name="IdCrit" />
+      </Principal>
+      <Dependent Role="Mark">
+        <PropertyRef Name="IdCrit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Result_ToAlt">
+    <End Role="Alternative" Type="Self.Alternative" Multiplicity="1" />
+    <End Role="Result" Type="Self.Result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alternative">
+        <PropertyRef Name="IdAlt" />
+      </Principal>
+      <Dependent Role="Result">
+        <PropertyRef Name="IdAlt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Result_ToLPR">
+    <End Role="LPR" Type="Self.LPR" Multiplicity="1" />
+    <End Role="Result" Type="Self.Result" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LPR">
+        <PropertyRef Name="IdLPR" />
+      </Principal>
+      <Dependent Role="Result">
+        <PropertyRef Name="IdLPR" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vector_ToAlternative">
+    <End Role="Alternative" Type="Self.Alternative" Multiplicity="1" />
+    <End Role="Vector" Type="Self.Vector" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Alternative">
+        <PropertyRef Name="IdAlt" />
+      </Principal>
+      <Dependent Role="Vector">
+        <PropertyRef Name="IdAlt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vector_ToMark">
+    <End Role="Mark" Type="Self.Mark" Multiplicity="1" />
+    <End Role="Vector" Type="Self.Vector" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Mark">
+        <PropertyRef Name="IdMark" />
+      </Principal>
+      <Dependent Role="Vector">
+        <PropertyRef Name="IdMark" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище Database1ModelContainer">
+    <EntitySet Name="Alternative" EntityType="Self.Alternative" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Criterion" EntityType="Self.Criterion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LPR" EntityType="Self.LPR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Mark" EntityType="Self.Mark" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Result" EntityType="Self.Result" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vector" EntityType="Self.Vector" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Mark_ToCriterion" Association="Self.FK_Mark_ToCriterion">
+      <End Role="Criterion" EntitySet="Criterion" />
+      <End Role="Mark" EntitySet="Mark" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Result_ToAlt" Association="Self.FK_Result_ToAlt">
+      <End Role="Alternative" EntitySet="Alternative" />
+      <End Role="Result" EntitySet="Result" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Result_ToLPR" Association="Self.FK_Result_ToLPR">
+      <End Role="LPR" EntitySet="LPR" />
+      <End Role="Result" EntitySet="Result" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vector_ToAlternative" Association="Self.FK_Vector_ToAlternative">
+      <End Role="Alternative" EntitySet="Alternative" />
+      <End Role="Vector" EntitySet="Vector" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vector_ToMark" Association="Self.FK_Vector_ToMark">
+      <End Role="Mark" EntitySet="Mark" />
+      <End Role="Vector" EntitySet="Vector" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

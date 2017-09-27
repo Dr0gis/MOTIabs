@@ -1,0 +1,33 @@
+﻿@model IEnumerable<MOTI.Alternative>
+
+@{
+    ViewBag.Title = "ListAlternative";
+}
+
+<h2>ListAlternative</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdAlt }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdAlt }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdAlt })
+        </td>
+    </tr>
+}
+
+</table>

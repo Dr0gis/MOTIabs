@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище Database1ModelContainer" CdmEntityContainer="Database1Entities">
+    <EntitySetMapping Name="Alternative">
+      <EntityTypeMapping TypeName="Database1Model.Alternative">
+        <MappingFragment StoreEntitySet="Alternative">
+          <ScalarProperty Name="IdAlt" ColumnName="IdAlt" />
+          <ScalarProperty Name="AName" ColumnName="AName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Criterion">
+      <EntityTypeMapping TypeName="Database1Model.Criterion">
+        <MappingFragment StoreEntitySet="Criterion">
+          <ScalarProperty Name="IdCrit" ColumnName="IdCrit" />
+          <ScalarProperty Name="CName" ColumnName="CName" />
+          <ScalarProperty Name="CRange" ColumnName="CRange" />
+          <ScalarProperty Name="CWeight" ColumnName="CWeight" />
+          <ScalarProperty Name="OptimType" ColumnName="OptimType" />
+          <ScalarProperty Name="EdIzmer" ColumnName="EdIzmer" />
+          <ScalarProperty Name="ScaleType" ColumnName="ScaleType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LPR">
+      <EntityTypeMapping TypeName="Database1Model.LPR">
+        <MappingFragment StoreEntitySet="LPR">
+          <ScalarProperty Name="IdLPR" ColumnName="IdLPR" />
+          <ScalarProperty Name="LName" ColumnName="LName" />
+          <ScalarProperty Name="LRange" ColumnName="LRange" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mark">
+      <EntityTypeMapping TypeName="Database1Model.Mark">
+        <MappingFragment StoreEntitySet="Mark">
+          <ScalarProperty Name="IdMark" ColumnName="IdMark" />
+          <ScalarProperty Name="IdCrit" ColumnName="IdCrit" />
+          <ScalarProperty Name="MName" ColumnName="MName" />
+          <ScalarProperty Name="MRange" ColumnName="MRange" />
+          <ScalarProperty Name="NumMark" ColumnName="NumMark" />
+          <ScalarProperty Name="NormMark" ColumnName="NormMark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Result">
+      <EntityTypeMapping TypeName="Database1Model.Result">
+        <MappingFragment StoreEntitySet="Result">
+          <ScalarProperty Name="IdRes" ColumnName="IdRes" />
+          <ScalarProperty Name="IdLPR" ColumnName="IdLPR" />
+          <ScalarProperty Name="IdAlt" ColumnName="IdAlt" />
+          <ScalarProperty Name="Range" ColumnName="Range" />
+          <ScalarProperty Name="AWeight" ColumnName="AWeight" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vector">
+      <EntityTypeMapping TypeName="Database1Model.Vector">
+        <MappingFragment StoreEntitySet="Vector">
+          <ScalarProperty Name="IdVect" ColumnName="IdVect" />
+          <ScalarProperty Name="IdAlt" ColumnName="IdAlt" />
+          <ScalarProperty Name="IdMark" ColumnName="IdMark" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

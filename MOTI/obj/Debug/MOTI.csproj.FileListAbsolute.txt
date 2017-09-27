@@ -1,0 +1,204 @@
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\ApplicationInsights.config
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\csc.exe
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\csc.exe.config
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\csc.rsp
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\csi.exe
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\csi.exe.config
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\csi.rsp
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\Microsoft.Win32.Primitives.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\System.AppContext.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\System.Collections.Immutable.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\System.Console.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\System.Diagnostics.Process.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\System.IO.Compression.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\System.IO.FileSystem.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\System.IO.Pipes.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\System.Reflection.Metadata.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\System.Security.AccessControl.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\System.Security.Claims.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\System.Security.Principal.Windows.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\System.Text.Encoding.CodePages.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\System.Threading.Thread.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\System.ValueTuple.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\System.Xml.ReaderWriter.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\System.Xml.XmlDocument.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\System.Xml.XPath.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\System.Xml.XPath.XDocument.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\vbc.exe
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\vbc.exe.config
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\vbc.rsp
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\VBCSCompiler.exe
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\roslyn\VBCSCompiler.exe.config
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\MOTI.dll.config
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\MOTI.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\MOTI.pdb
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\Antlr3.Runtime.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\EntityFramework.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\EntityFramework.SqlServer.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\Microsoft.AI.Agent.Intercept.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\Microsoft.AI.DependencyCollector.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\Microsoft.AI.Web.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\Microsoft.AI.WindowsServer.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\Microsoft.ApplicationInsights.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\Microsoft.Web.Infrastructure.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\Newtonsoft.Json.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\System.Web.Helpers.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\System.Web.Mvc.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\System.Web.Optimization.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\System.Web.Razor.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\System.Web.WebPages.Deployment.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\System.Web.WebPages.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\System.Web.WebPages.Razor.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\WebGrease.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\EntityFramework.xml
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\EntityFramework.SqlServer.xml
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\System.Web.Helpers.xml
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\System.Web.Mvc.xml
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\System.Web.Optimization.xml
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\System.Web.Razor.xml
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\System.Web.WebPages.xml
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\System.Web.WebPages.Deployment.xml
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\System.Web.WebPages.Razor.xml
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\Antlr3.Runtime.pdb
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\Newtonsoft.Json.xml
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\Microsoft.ApplicationInsights.xml
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\Microsoft.AI.DependencyCollector.xml
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\Microsoft.AI.WindowsServer.xml
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\Microsoft.AI.Web.xml
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\ru\EntityFramework.resources.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\ru\System.Web.Helpers.resources.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\ru\System.Web.Mvc.resources.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\ru\System.Web.Optimization.resources.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\ru\System.Web.Razor.resources.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\ru\System.Web.WebPages.resources.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\ru\System.Web.WebPages.Deployment.resources.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\bin\ru\System.Web.WebPages.Razor.resources.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\obj\Debug\MOTI.csprojResolveAssemblyReference.cache
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\obj\Debug\MOTI.csproj.CoreCompileInputs.cache
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\obj\Debug\MOTI.dll
+C:\LABS\3 курс\1 семестр\MOTI\MOTI\obj\Debug\MOTI.pdb
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\ApplicationInsights.config
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\csc.exe
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\csc.exe.config
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\csc.rsp
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\csi.exe
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\csi.exe.config
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\csi.rsp
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\Microsoft.Win32.Primitives.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\System.AppContext.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\System.Collections.Immutable.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\System.Console.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\System.Diagnostics.Process.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\System.Diagnostics.StackTrace.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\System.IO.Compression.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\System.IO.FileSystem.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\System.IO.FileSystem.Primitives.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\System.IO.Pipes.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\System.Reflection.Metadata.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\System.Security.AccessControl.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\System.Security.Claims.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\System.Security.Cryptography.Encoding.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\System.Security.Cryptography.Primitives.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\System.Security.Principal.Windows.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\System.Text.Encoding.CodePages.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\System.Threading.Thread.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\System.ValueTuple.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\System.Xml.ReaderWriter.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\System.Xml.XmlDocument.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\System.Xml.XPath.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\System.Xml.XPath.XDocument.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\vbc.exe
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\vbc.exe.config
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\vbc.rsp
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\VBCSCompiler.exe
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\roslyn\VBCSCompiler.exe.config
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\MOTI.dll.config
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\MOTI.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\MOTI.pdb
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\Antlr3.Runtime.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\EntityFramework.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\EntityFramework.SqlServer.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\Microsoft.AI.DependencyCollector.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\Microsoft.AI.Web.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\Microsoft.AI.WindowsServer.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\Microsoft.ApplicationInsights.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\Microsoft.Web.Infrastructure.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\Newtonsoft.Json.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\System.Web.Helpers.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\System.Web.Mvc.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\System.Web.Optimization.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\System.Web.Razor.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\System.Web.WebPages.Deployment.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\System.Web.WebPages.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\System.Web.WebPages.Razor.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\WebGrease.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\EntityFramework.xml
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\EntityFramework.SqlServer.xml
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\System.Web.Helpers.xml
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\System.Web.Mvc.xml
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\System.Web.Optimization.xml
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\System.Web.Razor.xml
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\System.Web.WebPages.xml
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\System.Web.WebPages.Deployment.xml
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\System.Web.WebPages.Razor.xml
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\Antlr3.Runtime.pdb
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\Newtonsoft.Json.xml
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\Microsoft.ApplicationInsights.xml
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\Microsoft.AI.DependencyCollector.xml
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\Microsoft.AI.WindowsServer.xml
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\Microsoft.AI.Web.xml
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\ru\EntityFramework.resources.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\ru\System.Web.Helpers.resources.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\ru\System.Web.Mvc.resources.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\ru\System.Web.Optimization.resources.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\ru\System.Web.Razor.resources.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\ru\System.Web.WebPages.resources.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\ru\System.Web.WebPages.Deployment.resources.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\bin\ru\System.Web.WebPages.Razor.resources.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\obj\Debug\MOTI.csprojResolveAssemblyReference.cache
+D:\Program\ASPdotNetCore\MOTI\MOTI\obj\Debug\MOTI.csproj.CoreCompileInputs.cache
+D:\Program\ASPdotNetCore\MOTI\MOTI\obj\Debug\MOTI.dll
+D:\Program\ASPdotNetCore\MOTI\MOTI\obj\Debug\MOTI.pdb
