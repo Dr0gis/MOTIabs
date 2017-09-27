@@ -1,0 +1,72 @@
+﻿@model MOTI.Criterion
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Criterion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CRange)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CRange)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CWeight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CWeight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OptimType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OptimType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EdIzmer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EdIzmer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScaleType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScaleType)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

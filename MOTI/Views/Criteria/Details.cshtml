@@ -1,0 +1,66 @@
+﻿@model MOTI.Criterion
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Criterion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CRange)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CRange)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CWeight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CWeight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OptimType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OptimType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EdIzmer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EdIzmer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScaleType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScaleType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdCrit }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

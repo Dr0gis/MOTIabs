@@ -27,21 +27,5 @@ namespace MOTI.Controllers
 
             return View();
         }
-
-        public ActionResult CreateAlternative()
-        {
-            ViewBag.Message = "Add an alternative";
-
-            return View();
-        }
-
-        public ActionResult ListAlternative()
-        {
-            ViewBag.Message = "List an alternative";
-            Database1Entities _entities = new Database1Entities();
-            DbSet<Alternative> model = _entities.Alternative;
-
-            return View(model);
-        }
     }
 }

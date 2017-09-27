@@ -153,7 +153,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AlternativesController.cs" />
+    <Compile Include="Controllers\CriteriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LPRsController.cs" />
+    <Compile Include="Controllers\MarksController.cs" />
+    <Compile Include="Controllers\VectorsController.cs" />
     <Compile Include="Criterion.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -247,8 +252,31 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\CreateAlternative.cshtml" />
-    <Content Include="Views\Home\ListAlternative.cshtml" />
+    <Content Include="Views\Alternatives\Create.cshtml" />
+    <Content Include="Views\Alternatives\Delete.cshtml" />
+    <Content Include="Views\Alternatives\Details.cshtml" />
+    <Content Include="Views\Alternatives\Edit.cshtml" />
+    <Content Include="Views\Alternatives\Index.cshtml" />
+    <Content Include="Views\LPRs\Create.cshtml" />
+    <Content Include="Views\LPRs\Delete.cshtml" />
+    <Content Include="Views\LPRs\Details.cshtml" />
+    <Content Include="Views\LPRs\Edit.cshtml" />
+    <Content Include="Views\LPRs\Index.cshtml" />
+    <Content Include="Views\Criteria\Create.cshtml" />
+    <Content Include="Views\Criteria\Delete.cshtml" />
+    <Content Include="Views\Criteria\Details.cshtml" />
+    <Content Include="Views\Criteria\Edit.cshtml" />
+    <Content Include="Views\Criteria\Index.cshtml" />
+    <Content Include="Views\Marks\Create.cshtml" />
+    <Content Include="Views\Marks\Delete.cshtml" />
+    <Content Include="Views\Marks\Details.cshtml" />
+    <Content Include="Views\Marks\Edit.cshtml" />
+    <Content Include="Views\Marks\Index.cshtml" />
+    <Content Include="Views\Vectors\Create.cshtml" />
+    <Content Include="Views\Vectors\Delete.cshtml" />
+    <Content Include="Views\Vectors\Details.cshtml" />
+    <Content Include="Views\Vectors\Edit.cshtml" />
+    <Content Include="Views\Vectors\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

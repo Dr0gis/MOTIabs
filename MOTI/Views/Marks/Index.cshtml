@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MOTI.Mark>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MRange)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumMark)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NormMark)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Criterion.CName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MRange)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumMark)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NormMark)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Criterion.CName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdMark }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdMark }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdMark })
+        </td>
+    </tr>
+}
+
+</table>

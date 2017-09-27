@@ -1,0 +1,58 @@
+﻿@model MOTI.Mark
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Mark</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MRange)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MRange)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumMark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumMark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NormMark)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NormMark)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Criterion.CName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Criterion.CName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdMark }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,26 @@
+﻿@model MOTI.Alternative
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Alternative</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdAlt }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
