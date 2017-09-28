@@ -18,6 +18,7 @@
     <Property Name="OptimType" Type="nvarchar(max)" />
     <Property Name="EdIzmer" Type="nvarchar(max)" />
     <Property Name="ScaleType" Type="nvarchar(max)" />
+    <Property Name="CType" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="LPR">
     <Key>

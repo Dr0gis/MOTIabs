@@ -12,6 +12,7 @@
     <EntitySetMapping Name="Criterion">
       <EntityTypeMapping TypeName="Database1Model.Criterion">
         <MappingFragment StoreEntitySet="Criterion">
+          <ScalarProperty Name="CType" ColumnName="CType" />
           <ScalarProperty Name="IdCrit" ColumnName="IdCrit" />
           <ScalarProperty Name="CName" ColumnName="CName" />
           <ScalarProperty Name="CRange" ColumnName="CRange" />

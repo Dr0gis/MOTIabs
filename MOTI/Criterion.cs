@@ -27,6 +27,7 @@ namespace MOTI
         public string OptimType { get; set; }
         public string EdIzmer { get; set; }
         public string ScaleType { get; set; }
+        public string CType { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Mark> Mark { get; set; }

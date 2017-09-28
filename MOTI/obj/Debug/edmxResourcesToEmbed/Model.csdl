@@ -21,6 +21,7 @@
     <Property Name="EdIzmer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ScaleType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Mark" Relationship="Self.FK_Mark_ToCriterion" FromRole="Criterion" ToRole="Mark" />
+    <Property Name="CType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="LPR">
     <Key>

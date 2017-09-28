@@ -201,6 +201,7 @@
     </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\MainStyle.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -227,6 +228,7 @@
     <Content Include="Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\MainStyle.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -262,7 +264,6 @@
     <Content Include="Views\LPRs\Details.cshtml" />
     <Content Include="Views\LPRs\Edit.cshtml" />
     <Content Include="Views\LPRs\Index.cshtml" />
-    <Content Include="Views\Criteria\Create.cshtml" />
     <Content Include="Views\Criteria\Delete.cshtml" />
     <Content Include="Views\Criteria\Details.cshtml" />
     <Content Include="Views\Criteria\Edit.cshtml" />
@@ -277,6 +278,7 @@
     <Content Include="Views\Vectors\Details.cshtml" />
     <Content Include="Views\Vectors\Edit.cshtml" />
     <Content Include="Views\Vectors\Index.cshtml" />
+    <Content Include="Views\Criteria\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

@@ -1,0 +1,47 @@
+/* line 5, MainStyle.scss */
+.btn {
+  border-radius: 0px;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all; }
+
+/* line 11, MainStyle.scss */
+.form-group input {
+  border-radius: 0px; }
+
+/* line 17, MainStyle.scss */
+.jumbotron h1 {
+  font-size: 43px; }
+
+/* line 22, MainStyle.scss */
+.navbar {
+  background-color: #434855; }
+  /* line 26, MainStyle.scss */
+  .navbar .navbar-header a {
+    color: #dce6e8;
+    border-bottom: 3px solid #434855;
+    border-top: 3px solid #434855; }
+  /* line 32, MainStyle.scss */
+  .navbar .navbar-header .navbar-toggle {
+    color: #dce6e8;
+    background-color: #428bca;
+    border-radius: 0px;
+    padding-left: 40px;
+    padding-right: 40px;
+    -webkit-transition: 0.5s all;
+    transition: 0.5s all; }
+    /* line 40, MainStyle.scss */
+    .navbar .navbar-header .navbar-toggle:hover, .navbar .navbar-header .navbar-toggle:focus {
+      background-color: #3276b1; }
+  /* line 48, MainStyle.scss */
+  .navbar li a {
+    color: #dce6e8;
+    border-bottom: 3px solid #434855;
+    border-top: 3px solid #434855;
+    -webkit-transition: 0.5s all;
+    transition: 0.5s all; }
+    /* line 54, MainStyle.scss */
+    .navbar li a:hover, .navbar li a:focus {
+      background-color: #333845;
+      border-bottom: 3px solid #0072bc; }
+
+/*# sourceMappingURL=MainStyle.css.map */

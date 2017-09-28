@@ -1,0 +1,60 @@
+﻿body {
+
+}
+
+.btn {
+    border-radius: 0px;
+    transition: 0.5s all;
+} 
+
+.form-group {
+    input {
+        border-radius: 0px;
+    }
+}
+
+.jumbotron {
+    h1 {
+        font-size: 43px;
+    }
+}
+
+.navbar {
+    background-color: #434855;
+
+    .navbar-header {
+        a {
+            color: #dce6e8;
+            border-bottom: 3px solid #434855;
+            border-top: 3px solid #434855;
+        }
+
+        .navbar-toggle {
+            color: #dce6e8;
+            background-color: #428bca;
+            border-radius: 0px;
+            padding-left: 40px;
+            padding-right: 40px;
+            transition: 0.5s all;
+
+            &:hover, &:focus {
+                background-color: #3276b1;
+            }
+        }
+    }
+
+    li {
+
+        a {
+            color: #dce6e8;
+            border-bottom: 3px solid #434855;
+            border-top: 3px solid #434855;
+            transition: 0.5s all;
+
+            &:hover, &:focus {
+                background-color: #333845;
+                border-bottom: 3px solid rgb(0, 114, 188);
+            }
+        }
+    }
+}
