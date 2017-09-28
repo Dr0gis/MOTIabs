@@ -13,6 +13,10 @@ namespace MOTI.Controllers
     public class CriteriaController : Controller
     {
         private Database1Entities db = new Database1Entities();
+        private List<string> ChoiceCType = new List<string> { "Качественный", "Количественный" };
+        private List<string> ChoiceOptimType = new List<string> { "Min", "Max" };
+        private List<string> ChoiceScaleType1 = new List<string> { "Порядковая шкала", "Шкала наименований", "Шкала интервалов", "Шкала отношений", "Шкала разностей", "Абсолютная шкала" };
+        //private List<string> ChoiceScaleType2 = new List<string> {  };
 
         // GET: Criteria
         public ActionResult Index()
@@ -38,6 +42,10 @@ namespace MOTI.Controllers
         // GET: Criteria/Create
         public ActionResult Create()
         {
+            ViewData["ChoiceCType"] = ChoiceCType;
+            ViewData["ChoiceOptimType"] = ChoiceOptimType;
+            ViewData["ChoiceScaleType1"] = ChoiceScaleType1;
+
             return View();
         }
 
@@ -46,7 +54,7 @@ namespace MOTI.Controllers
         // сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdCrit,CName,CRange,CWeight,OptimType,EdIzmer,ScaleType")] Criterion criterion)
+        public ActionResult Create([Bind(Include = "IdCrit,CName,CRange,CWeight,OptimType,EdIzmer,ScaleType,CType")] Criterion criterion)
         {
             if (ModelState.IsValid)
             {
@@ -70,6 +78,11 @@ namespace MOTI.Controllers
             {
                 return HttpNotFound();
             }
+
+            ViewData["ChoiceCType"] = ChoiceCType;
+            ViewData["ChoiceOptimType"] = ChoiceOptimType;
+            ViewData["ChoiceScaleType1"] = ChoiceScaleType1;
+
             return View(criterion);
         }
 
@@ -78,7 +91,7 @@ namespace MOTI.Controllers
         // сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "IdCrit,CName,CRange,CWeight,OptimType,EdIzmer,ScaleType")] Criterion criterion)
+        public ActionResult Edit([Bind(Include = "IdCrit,CName,CRange,CWeight,OptimType,EdIzmer,ScaleType,CType")] Criterion criterion)
         {
             if (ModelState.IsValid)
             {

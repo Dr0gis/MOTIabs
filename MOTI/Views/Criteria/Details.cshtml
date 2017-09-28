@@ -1,24 +1,25 @@
 ﻿@model MOTI.Criterion
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Свойства";
 }
 
-<h2>Details</h2>
+<h2>Свойства</h2>
 
 <div>
-    <h4>Criterion</h4>
+    <h4>Критерия</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.CName)
+            Название критерия
+            <!--@Html.DisplayNameFor(model => model.CName)-->
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.CName)
         </dd>
 
-        <dt>
+        <!--<dt>
             @Html.DisplayNameFor(model => model.CRange)
         </dt>
 
@@ -32,10 +33,20 @@
 
         <dd>
             @Html.DisplayFor(model => model.CWeight)
+        </dd>-->
+
+        <dt>
+            Тип критерия
+            <!--@Html.DisplayNameFor(model => model.CType)-->
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CType)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.OptimType)
+            Оптимальность критерия
+            <!--@Html.DisplayNameFor(model => model.OptimType)-->
         </dt>
 
         <dd>
@@ -43,7 +54,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EdIzmer)
+            Единицы измерения
+            <!--@Html.DisplayNameFor(model => model.EdIzmer)-->
         </dt>
 
         <dd>
@@ -51,7 +63,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ScaleType)
+            Тип шкалы
+            <!--@Html.DisplayNameFor(model => model.ScaleType)-->
         </dt>
 
         <dd>
@@ -61,6 +74,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdCrit }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Редактировать", "Edit", new { id = Model.IdCrit }) |
+    @Html.ActionLink("Назад к списку", "Index")
 </p>

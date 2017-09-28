@@ -1,34 +1,43 @@
 ﻿@model IEnumerable<MOTI.Criterion>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Критерии";
 }
 
-<h2>Index</h2>
+<h2>Критерии</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Создать", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.CName)
+            Название критерия
+            <!--@Html.DisplayNameFor(model => model.CName)-->
         </th>
         <th>
+            Тип критерия
+            <!--@Html.DisplayNameFor(model => model.CType)-->
+        </th>
+        <!--<th>
             @Html.DisplayNameFor(model => model.CRange)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.CWeight)
+        </th>-->
+        <th>
+            Оптимальность критерия
+            <!--@Html.DisplayNameFor(model => model.OptimType)-->
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.OptimType)
+            Единицы измерения
+            <!--@Html.DisplayNameFor(model => model.EdIzmer)-->
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EdIzmer)
+            Тип шкалы
+            <!--@Html.DisplayNameFor(model => model.ScaleType)-->
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ScaleType)
-        </th>
+        
         <th></th>
     </tr>
 
@@ -38,11 +47,14 @@
             @Html.DisplayFor(modelItem => item.CName)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.CType)
+        </td>
+        <!--<td>
             @Html.DisplayFor(modelItem => item.CRange)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CWeight)
-        </td>
+        </td>-->
         <td>
             @Html.DisplayFor(modelItem => item.OptimType)
         </td>
@@ -53,9 +65,9 @@
             @Html.DisplayFor(modelItem => item.ScaleType)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdCrit }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdCrit }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdCrit })
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.IdCrit }) |
+            @Html.ActionLink("Свойства", "Details", new { id=item.IdCrit }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.IdCrit })
         </td>
     </tr>
 }

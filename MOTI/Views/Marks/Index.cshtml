@@ -1,20 +1,21 @@
 ﻿@model IEnumerable<MOTI.Mark>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Оценки";
 }
 
-<h2>Index</h2>
+<h2>Оценки</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Создать", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.MName)
+            Название оценки
+            <!--@Html.DisplayNameFor(model => model.MName)-->
         </th>
-        <th>
+        <!--<th>
             @Html.DisplayNameFor(model => model.MRange)
         </th>
         <th>
@@ -22,9 +23,10 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.NormMark)
-        </th>
+        </th>-->
         <th>
-            @Html.DisplayNameFor(model => model.Criterion.CName)
+            Название критерия
+            <!--@Html.DisplayNameFor(model => model.Criterion.CName)-->
         </th>
         <th></th>
     </tr>
@@ -34,7 +36,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.MName)
         </td>
-        <td>
+        <!--<td>
             @Html.DisplayFor(modelItem => item.MRange)
         </td>
         <td>
@@ -42,14 +44,14 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.NormMark)
-        </td>
+        </td>-->
         <td>
             @Html.DisplayFor(modelItem => item.Criterion.CName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdMark }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdMark }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdMark })
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.IdMark }) |
+            @Html.ActionLink("Свойства", "Details", new { id=item.IdMark }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.IdMark })
         </td>
     </tr>
 }

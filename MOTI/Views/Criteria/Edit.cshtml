@@ -1,10 +1,10 @@
 ﻿@model MOTI.Criterion
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Редактировать";
 }
 
-<h2>Edit</h2>
+<h2>Редактировать</h2>
 
 
 @using (Html.BeginForm())
@@ -12,13 +12,14 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Criterion</h4>
+        <h4>Критерий</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.IdCrit)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="CName">Имя критерия</label>
+            <!--@Html.LabelFor(model => model.CName, htmlAttributes: new { @class = "control-label col-md-2" })-->
             <div class="col-md-10">
                 @Html.EditorFor(model => model.CName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CName, "", new { @class = "text-danger" })
@@ -26,6 +27,16 @@
         </div>
 
         <div class="form-group">
+            <label class="control-label col-md-2" for="CType">Тип критерия</label>
+            <!--@Html.LabelFor(model => model.CType, htmlAttributes: new { @class = "control-label col-md-2" })-->
+            <div class="col-md-10">
+                <!--@Html.EditorFor(model => model.CType, new { htmlAttributes = new { @class = "form-control" } })-->
+                @Html.DropDownListFor(model => model.CType, new SelectList((List<string>)@ViewData["ChoiceCType"]), "Выберите... ")
+                @Html.ValidationMessageFor(model => model.CType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <!--<div class="form-group">
             @Html.LabelFor(model => model.CRange, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.CRange, new { htmlAttributes = new { @class = "form-control" } })
@@ -39,18 +50,21 @@
                 @Html.EditorFor(model => model.CWeight, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.CWeight, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>-->
 
         <div class="form-group">
-            @Html.LabelFor(model => model.OptimType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="OptimType">Оптимальность критерия</label>
+            <!--@Html.LabelFor(model => model.OptimType, htmlAttributes: new { @class = "control-label col-md-2" })-->
             <div class="col-md-10">
-                @Html.EditorFor(model => model.OptimType, new { htmlAttributes = new { @class = "form-control" } })
+                <!--@Html.EditorFor(model => model.OptimType, new { htmlAttributes = new { @class = "form-control" } })-->
+                @Html.DropDownListFor(model => model.OptimType, new SelectList((List<string>)@ViewData["ChoiceOptimType"]), "Выберите... ")
                 @Html.ValidationMessageFor(model => model.OptimType, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.EdIzmer, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="EdIzmer">Единицы измерения</label>
+            <!--@Html.LabelFor(model => model.EdIzmer, htmlAttributes: new { @class = "control-label col-md-2" })-->
             <div class="col-md-10">
                 @Html.EditorFor(model => model.EdIzmer, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.EdIzmer, "", new { @class = "text-danger" })
@@ -58,25 +72,28 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ScaleType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="ScaleType">Тип шкалы</label>
+            <!--@Html.LabelFor(model => model.ScaleType, htmlAttributes: new { @class = "control-label col-md-2" })-->
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ScaleType, new { htmlAttributes = new { @class = "form-control" } })
+                <!--@Html.EditorFor(model => model.ScaleType, new { htmlAttributes = new { @class = "form-control" } })-->
+                @Html.DropDownListFor(model => model.ScaleType, new SelectList((List<string>)@ViewData["ChoiceScaleType1"]), "Выберите... ")
                 @Html.ValidationMessageFor(model => model.ScaleType, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Сохранить" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Назад к списку", "Index")
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/js")
 }

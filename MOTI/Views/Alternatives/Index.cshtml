@@ -1,18 +1,19 @@
 ﻿@model IEnumerable<MOTI.Alternative>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Альтернативы";
 }
 
-<h2>Index</h2>
+<h2>Альтернативы</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Создать", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.AName)
+            Название альтернативы
+            <!--@Html.DisplayNameFor(model => model.AName)-->
         </th>
         <th></th>
     </tr>
@@ -23,9 +24,9 @@
             @Html.DisplayFor(modelItem => item.AName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdAlt }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdAlt }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdAlt })
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.IdAlt }) |
+            @Html.ActionLink("Свойства", "Details", new { id=item.IdAlt }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.IdAlt })
         </td>
     </tr>
 }

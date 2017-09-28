@@ -1,23 +1,23 @@
 ﻿@model IEnumerable<MOTI.LPR>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Пользователи";
 }
 
-<h2>Index</h2>
+<h2>Пользователи</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Создать", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.LName)
+            Имя пользователя<!--@Html.DisplayNameFor(model => model.LName)-->
         </th>
-        <th>
+        <!--<th>
             @Html.DisplayNameFor(model => model.LRange)
-        </th>
-        <th></th>
+        </th>-->
+        <th>Функции</th>
     </tr>
 
 @foreach (var item in Model) {
@@ -25,13 +25,13 @@
         <td>
             @Html.DisplayFor(modelItem => item.LName)
         </td>
-        <td>
+        <!--<td>
             @Html.DisplayFor(modelItem => item.LRange)
-        </td>
+        </td>-->
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdLPR }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdLPR }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdLPR })
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.IdLPR }) |
+            @Html.ActionLink("Свойства", "Details", new { id=item.IdLPR }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.IdLPR })
         </td>
     </tr>
 }

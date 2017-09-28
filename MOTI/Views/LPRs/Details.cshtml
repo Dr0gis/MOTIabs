@@ -1,34 +1,35 @@
 ﻿@model MOTI.LPR
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Свойства";
 }
 
-<h2>Details</h2>
+<h2>Свойства</h2>
 
 <div>
-    <h4>LPR</h4>
+    <h4>Пользователь</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.LName)
+            Имя пользователя
+            <!--@Html.DisplayNameFor(model => model.LName)-->
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.LName)
         </dd>
 
-        <dt>
+        <!--<dt>
             @Html.DisplayNameFor(model => model.LRange)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.LRange)
-        </dd>
+        </dd>-->
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdLPR }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Редактировать", "Edit", new { id = Model.IdLPR }) |
+    @Html.ActionLink("Назад к списку", "Index")
 </p>

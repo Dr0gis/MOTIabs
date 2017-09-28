@@ -1,21 +1,23 @@
 ﻿@model IEnumerable<MOTI.Vector>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Векторы";
 }
 
-<h2>Index</h2>
+<h2>Векторы</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Создать", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Alternative.AName)
+            Название альтернативы
+            <!--@Html.DisplayNameFor(model => model.Alternative.AName)-->
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Mark.MName)
+            Название оценки
+            <!--@Html.DisplayNameFor(model => model.Mark.MName)-->
         </th>
         <th></th>
     </tr>
@@ -29,9 +31,9 @@
             @Html.DisplayFor(modelItem => item.Mark.MName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdVect }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdVect }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdVect })
+            @Html.ActionLink("Редактировать", "Edit", new { id=item.IdVect }) |
+            @Html.ActionLink("Свойства", "Details", new { id=item.IdVect }) |
+            @Html.ActionLink("Удалить", "Delete", new { id=item.IdVect })
         </td>
     </tr>
 }

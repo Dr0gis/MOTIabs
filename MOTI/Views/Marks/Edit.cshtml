@@ -1,10 +1,10 @@
 ﻿@model MOTI.Mark
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Редактировать";
 }
 
-<h2>Edit</h2>
+<h2>Редактировать</h2>
 
 
 @using (Html.BeginForm())
@@ -12,13 +12,14 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Mark</h4>
+        <h4>Оценка</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.IdMark)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.IdCrit, "IdCrit", htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="IdCrit">Название критерия</label>
+            <!--@Html.LabelFor(model => model.IdCrit, "IdCrit", htmlAttributes: new { @class = "control-label col-md-2" })-->
             <div class="col-md-10">
                 @Html.DropDownList("IdCrit", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.IdCrit, "", new { @class = "text-danger" })
@@ -26,14 +27,15 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.MName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="MName">Название оценки</label>
+            <!--@Html.LabelFor(model => model.MName, htmlAttributes: new { @class = "control-label col-md-2" })-->
             <div class="col-md-10">
                 @Html.EditorFor(model => model.MName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.MName, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
+        <!--<div class="form-group">
             @Html.LabelFor(model => model.MRange, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.MRange, new { htmlAttributes = new { @class = "form-control" } })
@@ -55,18 +57,18 @@
                 @Html.EditorFor(model => model.NormMark, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.NormMark, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>-->
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Сохранить" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Назад к списку", "Index")
 </div>
 
 @section Scripts {

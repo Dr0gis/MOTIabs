@@ -1,24 +1,25 @@
 ﻿@model MOTI.Mark
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Свойства";
 }
 
-<h2>Details</h2>
+<h2>Свойства</h2>
 
 <div>
-    <h4>Mark</h4>
+    <h4>Оценка</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.MName)
+            Название оценки
+            <!--@Html.DisplayNameFor(model => model.MName)-->
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.MName)
         </dd>
 
-        <dt>
+        <!--<dt>
             @Html.DisplayNameFor(model => model.MRange)
         </dt>
 
@@ -40,10 +41,11 @@
 
         <dd>
             @Html.DisplayFor(model => model.NormMark)
-        </dd>
+        </dd>-->
 
         <dt>
-            @Html.DisplayNameFor(model => model.Criterion.CName)
+            Название критерия
+            <!--@Html.DisplayNameFor(model => model.Criterion.CName)-->
         </dt>
 
         <dd>
@@ -53,6 +55,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.IdMark }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Редактировать", "Edit", new { id = Model.IdMark }) |
+    @Html.ActionLink("Назад к списку", "Index")
 </p>
