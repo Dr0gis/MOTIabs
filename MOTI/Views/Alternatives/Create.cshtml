@@ -19,7 +19,7 @@
             <label class="control-label col-md-2" for="AName">Название альтернативы</label>
             <!--@Html.LabelFor(model => model.AName, htmlAttributes: new { @class = "control-label col-md-2" })-->
             <div class="col-md-10">
-                @Html.EditorFor(model => model.AName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.AName, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                 @Html.ValidationMessageFor(model => model.AName, "", new { @class = "text-danger" })
             </div>
         </div>

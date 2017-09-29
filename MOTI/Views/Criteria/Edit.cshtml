@@ -21,7 +21,7 @@
             <label class="control-label col-md-2" for="CName">Имя критерия</label>
             <!--@Html.LabelFor(model => model.CName, htmlAttributes: new { @class = "control-label col-md-2" })-->
             <div class="col-md-10">
-                @Html.EditorFor(model => model.CName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.CName, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                 @Html.ValidationMessageFor(model => model.CName, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -31,7 +31,7 @@
             <!--@Html.LabelFor(model => model.CType, htmlAttributes: new { @class = "control-label col-md-2" })-->
             <div class="col-md-10">
                 <!--@Html.EditorFor(model => model.CType, new { htmlAttributes = new { @class = "form-control" } })-->
-                @Html.DropDownListFor(model => model.CType, new SelectList((List<string>)@ViewData["ChoiceCType"]), "Выберите... ")
+                @Html.DropDownListFor(model => model.CType, new SelectList((List<string>)@ViewData["ChoiceCType"]), "Выберите... ", new { required = "required" })
                 @Html.ValidationMessageFor(model => model.CType, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -57,7 +57,7 @@
             <!--@Html.LabelFor(model => model.OptimType, htmlAttributes: new { @class = "control-label col-md-2" })-->
             <div class="col-md-10">
                 <!--@Html.EditorFor(model => model.OptimType, new { htmlAttributes = new { @class = "form-control" } })-->
-                @Html.DropDownListFor(model => model.OptimType, new SelectList((List<string>)@ViewData["ChoiceOptimType"]), "Выберите... ")
+                @Html.DropDownListFor(model => model.OptimType, new SelectList((List<string>)@ViewData["ChoiceOptimType"]), "Выберите... ", new { required = "required" })
                 @Html.ValidationMessageFor(model => model.OptimType, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -66,7 +66,7 @@
             <label class="control-label col-md-2" for="EdIzmer">Единицы измерения</label>
             <!--@Html.LabelFor(model => model.EdIzmer, htmlAttributes: new { @class = "control-label col-md-2" })-->
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EdIzmer, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.EdIzmer, new { htmlAttributes = new { @class = "form-control", required = "required" } })
                 @Html.ValidationMessageFor(model => model.EdIzmer, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -76,7 +76,7 @@
             <!--@Html.LabelFor(model => model.ScaleType, htmlAttributes: new { @class = "control-label col-md-2" })-->
             <div class="col-md-10">
                 <!--@Html.EditorFor(model => model.ScaleType, new { htmlAttributes = new { @class = "form-control" } })-->
-                @Html.DropDownListFor(model => model.ScaleType, new SelectList((List<string>)@ViewData["ChoiceScaleType1"]), "Выберите... ")
+                @Html.DropDownListFor(model => model.ScaleType, new SelectList((List<string>)@ViewData["ChoiceScaleType1"]), "Выберите... ", new { required = "required" })
                 @Html.ValidationMessageFor(model => model.ScaleType, "", new { @class = "text-danger" })
             </div>
         </div>

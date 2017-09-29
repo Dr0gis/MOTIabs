@@ -41,6 +41,19 @@ namespace MOTI.Controllers
         {
             ViewBag.IdAlt = new SelectList(db.Alternative, "IdAlt", "AName");
             ViewBag.IdMark = new SelectList(db.Mark, "IdMark", "MName");
+            ViewBag.CName = new SelectList(db.Criterion, "IdCrit", "CName");
+            int countCrit = db.Criterion.Select(x => x).Count();
+            ViewData["Index"] = 0;
+            ViewData["CountCrit"] = countCrit;
+            ViewData["CountMark"] = db.Mark.Select(x => x).Count();
+            var listCriterion = db.Criterion.Select(x => x.IdCrit).ToList();
+            for (int i = 0; i < countCrit; ++i)
+            {
+                int id = listCriterion[i];
+                int temp = db.Mark.Select(x => x).Where(x => x.IdCrit == id).Count();
+                ViewData["CountMarkByCrit" + (i)] = temp;
+            }
+            
             return View();
         }
 
