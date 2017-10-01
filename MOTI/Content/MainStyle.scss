@@ -66,3 +66,16 @@
     }
 }
 
+.select-marks {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 15px;
+
+    select {
+        
+    }
+
+    span {
+        padding: 10px;
+    }
+}

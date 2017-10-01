@@ -6,7 +6,6 @@
 
 <h2>Создать</h2>
 
-
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
@@ -26,15 +25,13 @@
         @{ int i = 0; }
         @foreach (String s in ViewBag.CritName)
         {
-            <div>
+            <div class="col-md-12">
                 <label class="control-label col-md-2" for="CritName">@s</label>
-                <div class="col-md-4">
-                    <div class="select-marks">
-                        @Html.DropDownList("IdMark", (SelectList)ViewBag.MNames[i], htmlAttributes: new { @class = "form-control", required = "required" })
-                        <span>
-                            @ViewBag.EdIzmer[i]
-                        </span>
-                    </div>
+                <div class="select-marks">
+                    @Html.DropDownList("IdMark" + i, (SelectList)ViewBag.MNames[i], htmlAttributes: new { @class = "form-control", required = "required" })
+                    <span>
+                        @ViewBag.EdIzmer[i]
+                    </span>
                 </div>
             </div>
             ++i; 

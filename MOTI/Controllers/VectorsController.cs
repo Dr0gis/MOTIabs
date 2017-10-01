@@ -13,7 +13,7 @@ namespace MOTI.Controllers
     public class VectorsController : Controller
     {
         private Database1Entities db = new Database1Entities();
-
+        
         // GET: Vectors
         public ActionResult Index()
         {
@@ -37,6 +37,7 @@ namespace MOTI.Controllers
         }
 
         // GET: Vectors/Create
+        [HttpGet]
         public ActionResult Create()
         {
             ViewBag.IdAlt = new SelectList(db.Alternative, "IdAlt", "AName"); 
@@ -63,22 +64,37 @@ namespace MOTI.Controllers
         // сведения см. в статье https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "IdVect,IdAlt,IdMark")] Vector vector)
+        public ActionResult Create(Vector vector)
         {
-            if (ModelState.IsValid)
+            int idAlt = Int32.Parse(Request.Params["IdAlt"]);
+            List<int> mIds = new List<int>();
+            List<int> idCrits = db.Criterion.Select(x => x.IdCrit).ToList();
+            for(int i = 0; i < idCrits.Count; ++i)
             {
-                db.Vector.Add(vector);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                string tempStr = Request.Params["IdMark" + i];
+                int tempInt = Int32.Parse(tempStr);
+                mIds.Add(tempInt);
             }
+            foreach(int idMark in mIds)
+            {
+                Vector vectorTemp = new Vector();
+                vectorTemp.IdAlt = idAlt;
+                vectorTemp.IdMark = idMark;
+                db.Vector.Add(vectorTemp);
+                db.SaveChanges();
+            }
+            //List<string> mNames = 
 
-            ViewBag.IdAlt = new SelectList(db.Alternative, "IdAlt", "AName", vector.IdAlt);
-            ViewBag.IdMark = new SelectList(db.Mark, "IdMark", "MName", vector.IdMark);
-            return View(vector);
-        }
-        public ActionResult GetItems(string name)
-        {
-            return PartialView(db.Mark.Where(m=> m.Criterion.CName == name).ToList());
+            //if (ModelState.IsValid)
+            //{
+            //    db.Vector.Add(vector);
+            //    db.SaveChanges();
+            //    
+            //}
+
+            //ViewBag.IdAlt = new SelectList(db.Alternative, "IdAlt", "AName", vector.IdAlt);
+            //ViewBag.IdMark = new SelectList(db.Mark, "IdMark", "MName", vector.IdMark);
+            return RedirectToAction("Index");
         }
 
         // GET: Vectors/Edit/5
