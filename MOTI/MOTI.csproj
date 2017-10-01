@@ -280,6 +280,7 @@
     <Content Include="Views\Criteria\Details.cshtml" />
     <Content Include="Views\Criteria\Index.cshtml" />
     <Content Include="Views\Criteria\Edit.cshtml" />
+    <Content Include="Views\Vectors\GetItems.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

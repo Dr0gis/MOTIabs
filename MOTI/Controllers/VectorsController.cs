@@ -39,21 +39,22 @@ namespace MOTI.Controllers
         // GET: Vectors/Create
         public ActionResult Create()
         {
-            ViewBag.IdAlt = new SelectList(db.Alternative, "IdAlt", "AName");
-            ViewBag.IdMark = new SelectList(db.Mark, "IdMark", "MName");
-            ViewBag.CName = new SelectList(db.Criterion, "IdCrit", "CName");
-            int countCrit = db.Criterion.Select(x => x).Count();
-            ViewData["Index"] = 0;
-            ViewData["CountCrit"] = countCrit;
-            ViewData["CountMark"] = db.Mark.Select(x => x).Count();
-            var listCriterion = db.Criterion.Select(x => x.IdCrit).ToList();
-            for (int i = 0; i < countCrit; ++i)
+            ViewBag.IdAlt = new SelectList(db.Alternative, "IdAlt", "AName"); 
+
+            List<String> critsName = db.Criterion.Select(x => x.CName).ToList();
+            ViewBag.CritName = critsName;
+
+            List<string> edIzmer = db.Criterion.Select(x => x.EdIzmer).ToList();
+            ViewBag.EdIzmer = edIzmer;
+
+            List<int> idCrits = db.Criterion.Select(x => x.IdCrit).ToList();           
+            List<SelectList> MNamesLists = new List<SelectList>();
+            foreach(int i in idCrits)
             {
-                int id = listCriterion[i];
-                int temp = db.Mark.Select(x => x).Where(x => x.IdCrit == id).Count();
-                ViewData["CountMarkByCrit" + (i)] = temp;
+                MNamesLists.Add(new SelectList(db.Mark.Where(mark => mark.Criterion.IdCrit == i), "IdMark", "MName"));
             }
-            
+            ViewBag.MNames = MNamesLists;
+
             return View();
         }
 
@@ -74,6 +75,10 @@ namespace MOTI.Controllers
             ViewBag.IdAlt = new SelectList(db.Alternative, "IdAlt", "AName", vector.IdAlt);
             ViewBag.IdMark = new SelectList(db.Mark, "IdMark", "MName", vector.IdMark);
             return View(vector);
+        }
+        public ActionResult GetItems(string name)
+        {
+            return PartialView(db.Mark.Where(m=> m.Criterion.CName == name).ToList());
         }
 
         // GET: Vectors/Edit/5
