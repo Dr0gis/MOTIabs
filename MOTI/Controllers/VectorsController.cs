@@ -18,6 +18,8 @@ namespace MOTI.Controllers
         public ActionResult Index()
         {
             var vector = db.Vector.Include(v => v.Alternative).Include(v => v.Mark);
+            List<string> alternatives = db.Vector.Select(x => x.Alternative.AName).Distinct().ToList();
+            ViewBag.Alternatives = alternatives;
             return View(vector.ToList());
         }
 
@@ -77,6 +79,10 @@ namespace MOTI.Controllers
             }
             foreach(int idMark in mIds)
             {
+                //Vector[] vectors = db.Vector.Where(x => x.IdAlt == idAlt && x.IdMark == idMark).ToArray();
+                //if (vectors != null)
+                //{
+                //}
                 Vector vectorTemp = new Vector();
                 vectorTemp.IdAlt = idAlt;
                 vectorTemp.IdMark = idMark;

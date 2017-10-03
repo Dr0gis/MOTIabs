@@ -9,39 +9,45 @@
 <p>
     @Html.ActionLink("Создать", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            Название альтернативы
-            <!--@Html.DisplayNameFor(model => model.Alternative.AName)-->
-        </th>
-        <th>
-            Критерий
-        </th>
-        <th>
-            Название оценки
-            <!--@Html.DisplayNameFor(model => model.Mark.MName)-->
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Alternative.AName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Mark.Criterion.CName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Mark.MName)
-        </td>
-        <td>
-            @Html.ActionLink("Редактировать", "Edit", new { id=item.IdVect }) |
-            @Html.ActionLink("Свойства", "Details", new { id=item.IdVect }) |
-            @Html.ActionLink("Удалить", "Delete", new { id=item.IdVect })
-        </td>
-    </tr>
-}
+@foreach (string alternativeName in ViewBag.Alternatives)
+{
+    <label>@Html.DisplayName(alternativeName)</label>
+    <table class="table">
+        <!--<tr>
+            <th>
+                Название альтернативы 
+                
+            </th>
+            <th>
+                
+            </th>
+            <th>
+                Название оценки 
+                @Html.DisplayNameFor(model => model.Mark.MName)
+            </th>
+            <th></th>
+        </tr>-->
+    
+    @foreach (var item in Model.Where(vect => vect.Alternative.AName == alternativeName))
+        {
+            <tr>
+                <td>
+                    <!--@Html.DisplayFor(modelItem => item.Alternative.AName)-->
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mark.Criterion.CName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mark.MName)
+                </td>
+                <td>
+                    @Html.ActionLink("Редактировать", "Edit", new { id = item.IdVect }) |
+                    @Html.ActionLink("Свойства", "Details", new { id = item.IdVect }) |
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.IdVect })
+                </td>
+            </tr>
+        }
 
 </table>
+}
