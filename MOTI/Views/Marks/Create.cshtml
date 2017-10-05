@@ -7,10 +7,10 @@
 <h2>Создать</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Оценка</h4>
         <hr />
@@ -63,12 +63,66 @@
             </div>
         </div>
     </div>
+    <div>
+@{
+    foreach (var crit in ViewBag.IdCrit)
+    {
+        <div id="Crit_@crit.Value" class="disabled">
+            <table class="table">
+                <tr>
+                    <th>
+                        Сущестующая Оценка
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+                @{foreach (Mark mark in ViewBag.Marks)
+                    {
+                        if (mark.IdCrit == Int32.Parse(crit.Value))
+                        {
+                            <tr>
+                                <td>
+                                    @mark.MName
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Редактировать", "Edit", new { id = mark.IdMark }) |
+                                    @Html.ActionLink("Свойства", "Details", new { id = mark.IdMark }) |
+                                    @Html.ActionLink("Удалить", "Delete", new { id = mark.IdMark })
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+            </table>
+        </div>
+    }
+ }
+    </div>
 }
-
 <div>
     @Html.ActionLink("Назад к списку", "Index")
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            viewTable();
+            $("#IdCrit").change(viewTable);
+        });      
+        function viewTable() {
+            //var options = document.getElementsByTagName("option");
+            var select = $("#IdCrit");
+            var options = select.find("option");
+            for (var nodeId = 0; nodeId < options.length; ++nodeId) {
+                var critDiv = $("#Crit_" + options[nodeId].value);
+                if (options[nodeId].selected == true) {
+                    critDiv.css( "display", "block");
+                }             
+                else {
+                    critDiv.css( "display", "none");
+                }
+            }            
+        }
+    </script>
 }

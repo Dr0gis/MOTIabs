@@ -9,51 +9,50 @@
 <p>
     @Html.ActionLink("Создать", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            Название оценки
-            <!--@Html.DisplayNameFor(model => model.MName)-->
-        </th>
-        <!--<th>
-            @Html.DisplayNameFor(model => model.MRange)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumMark)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NormMark)
-        </th>-->
-        <th>
-            Название критерия
-            <!--@Html.DisplayNameFor(model => model.Criterion.CName)-->
-        </th>
-        <th></th>
-    </tr>
+@{
+    foreach (string criterionName in ViewBag.CriterionNames)
+    {
+        <label style="margin-top:20px">@Html.DisplayName(criterionName)</label>
+        <div class="modal-content">
+            <table class="table">
+                <tr>
+                    <!--<th style="width: 200px">
+                        Название критерия
+                        @Html.DisplayNameFor(model => model.MName)
+                    </th>-->
+                    <!--<th>
+                        @Html.DisplayNameFor(model => model.MRange)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NumMark)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NormMark)
+                    </th>-->
+                    <th>
+                        Название оценки
+                        <!--Название критерия -->
+                    </th>
+                    <th></th>
+                </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.MName)
-        </td>
-        <!--<td>
-            @Html.DisplayFor(modelItem => item.MRange)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumMark)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NormMark)
-        </td>-->
-        <td>
-            @Html.DisplayFor(modelItem => item.Criterion.CName)
-        </td>
-        <td>
-            @Html.ActionLink("Редактировать", "Edit", new { id=item.IdMark }) |
-            @Html.ActionLink("Свойства", "Details", new { id=item.IdMark }) |
-            @Html.ActionLink("Удалить", "Delete", new { id=item.IdMark })
-        </td>
-    </tr>
+                @{foreach (var item in Model.Where(m => m.Criterion.CName == criterionName))
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MName)
+
+                            </td>
+                            <td>
+                                @Html.ActionLink("Редактировать", "Edit", new { id = item.IdMark }) |
+                                @Html.ActionLink("Свойства", "Details", new { id = item.IdMark }) |
+                                @Html.ActionLink("Удалить", "Delete", new { id = item.IdMark })
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+    }
+
 }
-
-</table>

@@ -18,6 +18,8 @@ namespace MOTI.Controllers
         public ActionResult Index()
         {
             var mark = db.Mark.Include(m => m.Criterion);
+            List<string> criterionNames = db.Criterion.Select(c => c.CName).ToList();
+            ViewBag.CriterionNames = criterionNames;
             return View(mark.ToList());
         }
 
@@ -40,6 +42,7 @@ namespace MOTI.Controllers
         public ActionResult Create()
         {
             ViewBag.IdCrit = new SelectList(db.Criterion, "IdCrit", "CName");
+            ViewBag.Marks = db.Mark.ToList();
             return View();
         }
 
@@ -61,7 +64,7 @@ namespace MOTI.Controllers
             return View(mark);
         }
 
-        // GET: Marks/Edit/5
+        // GET: Marks/Edit/5 
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -73,6 +76,7 @@ namespace MOTI.Controllers
             {
                 return HttpNotFound();
             }
+            //.Where( m => m.CName == cName)
             ViewBag.IdCrit = new SelectList(db.Criterion, "IdCrit", "CName", mark.IdCrit);
             return View(mark);
         }

@@ -18,7 +18,7 @@ namespace MOTI.Controllers
         public ActionResult Index()
         {
             var vector = db.Vector.Include(v => v.Alternative).Include(v => v.Mark);
-            List<string> alternatives = db.Vector.Select(x => x.Alternative.AName).Distinct().ToList();
+            List<string> alternatives = db.Alternative.Select(x => x.AName).ToList();
             ViewBag.Alternatives = alternatives;
             return View(vector.ToList());
         }
@@ -68,27 +68,40 @@ namespace MOTI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Vector vector)
         {
+
             int idAlt = Int32.Parse(Request.Params["IdAlt"]);
             List<int> mIds = new List<int>();
             List<int> idCrits = db.Criterion.Select(x => x.IdCrit).ToList();
-            for(int i = 0; i < idCrits.Count; ++i)
+            //List<Mark> marksWithSuchIdAlt = db.Vector.Where(v => v.IdAlt == idAlt).Select( v => v.Mark ).ToList();
+
+            for (int i = 0; i < idCrits.Count; ++i)
             {
                 string tempStr = Request.Params["IdMark" + i];
                 int tempInt = Int32.Parse(tempStr);
                 mIds.Add(tempInt);
             }
-            foreach(int idMark in mIds)
+
+            foreach (int idMark in mIds)
             {
-                //Vector[] vectors = db.Vector.Where(x => x.IdAlt == idAlt && x.IdMark == idMark).ToArray();
-                //if (vectors != null)
-                //{
-                //}
                 Vector vectorTemp = new Vector();
                 vectorTemp.IdAlt = idAlt;
                 vectorTemp.IdMark = idMark;
-                db.Vector.Add(vectorTemp);
+                Mark some = db.Mark.Where(y => y.IdMark == idMark).First();
+                var crits = db.Vector.Where(x => x.Mark.IdCrit == some.IdCrit && x.IdAlt == idAlt);
+                List<Vector> listCrits = crits.ToList();
+                if (listCrits.Count == 0)
+                {
+                    db.Vector.Add(vectorTemp);
+                }
+                else
+                {
+                    crits.FirstOrDefault().IdMark = idMark;
+                    //db.Entry(crits.First())
+                }
                 db.SaveChanges();
             }
+
+            #region comments
             //List<string> mNames = 
 
             //if (ModelState.IsValid)
@@ -100,6 +113,8 @@ namespace MOTI.Controllers
 
             //ViewBag.IdAlt = new SelectList(db.Alternative, "IdAlt", "AName", vector.IdAlt);
             //ViewBag.IdMark = new SelectList(db.Mark, "IdMark", "MName", vector.IdMark);
+            #endregion
+
             return RedirectToAction("Index");
         }
 
@@ -116,7 +131,8 @@ namespace MOTI.Controllers
                 return HttpNotFound();
             }
             ViewBag.IdAlt = new SelectList(db.Alternative, "IdAlt", "AName", vector.IdAlt);
-            ViewBag.IdMark = new SelectList(db.Mark, "IdMark", "MName", vector.IdMark);
+            ViewBag.CName = db.Mark.Where(mark => mark.IdMark == vector.IdMark).Select(m => m.Criterion.CName).ToList()[0];
+            ViewBag.IdMark = new SelectList(db.Mark.Where(mark => mark.IdCrit == vector.Mark.IdCrit), "IdMark", "MName", vector.IdMark);
             return View(vector);
         }
 

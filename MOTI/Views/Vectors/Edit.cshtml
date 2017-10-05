@@ -10,7 +10,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Вектор</h4>
         <hr />
@@ -19,13 +19,22 @@
 
         <div class="form-group">
             <label class="control-label col-md-2" for="IdAlt">Название альтернативы</label>
+            @Html.HiddenFor(model => model.IdAlt)
             <!--@Html.LabelFor(model => model.IdAlt, "IdAlt", htmlAttributes: new { @class = "control-label col-md-2" })-->
             <div class="col-md-10">
-                @Html.DropDownList("IdAlt", null, htmlAttributes: new { @class = "form-control", required = "required" })
+                
+                @Html.DisplayFor(model => model.Alternative.AName)
+      
+                <!--@Html.DropDownList("IdAlt", null, htmlAttributes: new { @class = "form-control", required = "required" })-->
                 @Html.ValidationMessageFor(model => model.IdAlt, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        <div class="form-group">
+            <label class="control-label col-md-2" for="IdMark">Критерий</label>
+            <div class="col-md-10">
+                @ViewBag.CName
+            </div>
+        </div>
         <div class="form-group">
             <label class="control-label col-md-2" for="IdMark">Название оценки</label>
             <!--@Html.LabelFor(model => model.IdMark, "IdMark", htmlAttributes: new { @class = "control-label col-md-2" })-->

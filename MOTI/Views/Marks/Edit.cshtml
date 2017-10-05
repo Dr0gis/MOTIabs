@@ -19,9 +19,10 @@
 
         <div class="form-group">
             <label class="control-label col-md-2" for="IdCrit">Название критерия</label>
-            <!--@Html.LabelFor(model => model.IdCrit, "IdCrit", htmlAttributes: new { @class = "control-label col-md-2" })-->
+            @Html.HiddenFor(model => model.IdCrit)
             <div class="col-md-10">
-                @Html.DropDownList("IdCrit", null, htmlAttributes: new { @class = "form-control", required = "required" })
+                @Model.Criterion.CName
+                <!--@Html.DropDownList("IdCrit", null, htmlAttributes: new { @class = "form-control", required = "required" })-->
                 @Html.ValidationMessageFor(model => model.IdCrit, "", new { @class = "text-danger" })
             </div>
         </div>
