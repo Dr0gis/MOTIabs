@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        <!--<div class="form-group">
+        <div class="form-group" id="input-range">
             @Html.LabelFor(model => model.MRange, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.MRange, new { htmlAttributes = new { @class = "form-control" } })
@@ -41,7 +41,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <!--<div class="form-group">
             @Html.LabelFor(model => model.NumMark, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.NumMark, new { htmlAttributes = new { @class = "form-control" } })
@@ -76,21 +76,20 @@
                     <th>
                     </th>
                 </tr>
-                @{foreach (Mark mark in ViewBag.Marks)
+                @foreach (Mark mark in ViewBag.Marks)
+                {
+                    if (mark.IdCrit == Int32.Parse(crit.Value))
                     {
-                        if (mark.IdCrit == Int32.Parse(crit.Value))
-                        {
-                            <tr>
-                                <td>
-                                    @mark.MName
-                                </td>
-                                <td>
-                                    @Html.ActionLink("Редактировать", "Edit", new { id = mark.IdMark }) |
-                                    @Html.ActionLink("Свойства", "Details", new { id = mark.IdMark }) |
-                                    @Html.ActionLink("Удалить", "Delete", new { id = mark.IdMark })
-                                </td>
-                            </tr>
-                        }
+                        <tr>
+                            <td>
+                                @mark.MName
+                            </td>
+                            <td>
+                                @Html.ActionLink("Редактировать", "Edit", new { id = mark.IdMark }) |
+                                @Html.ActionLink("Свойства", "Details", new { id = mark.IdMark }) |
+                                @Html.ActionLink("Удалить", "Delete", new { id = mark.IdMark })
+                            </td>
+                        </tr>
                     }
                 }
             </table>
@@ -117,12 +116,27 @@
             for (var nodeId = 0; nodeId < options.length; ++nodeId) {
                 var critDiv = $("#Crit_" + options[nodeId].value);
                 if (options[nodeId].selected == true) {
+                    displayInputRange(options[nodeId]);
                     critDiv.css( "display", "block");
                 }             
                 else {
                     critDiv.css( "display", "none");
                 }
             }            
+        }
+        function displayInputRange(option) {
+            var crit = {};
+            @foreach (var item in ViewBag.ListCrit)
+            {
+                @Html.Raw("crit[" + item.IdCrit + "] = '" + item.CType + "';");
+            }
+            var inputRange = $("#input-range");
+            if (crit[option.value] == 'Количественный') {
+                inputRange.css("display", "none");
+            }
+            else {
+                inputRange.css("display", "block");
+            }
         }
     </script>
 }

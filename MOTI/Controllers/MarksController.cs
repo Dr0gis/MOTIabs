@@ -43,6 +43,7 @@ namespace MOTI.Controllers
         {
             ViewBag.IdCrit = new SelectList(db.Criterion, "IdCrit", "CName");
             ViewBag.Marks = db.Mark.ToList();
+            ViewBag.ListCrit = db.Criterion.ToList();
             return View();
         }
 
@@ -57,6 +58,13 @@ namespace MOTI.Controllers
             {
                 db.Mark.Add(mark);
                 db.SaveChanges();
+                Mark createdMark = db.Mark.Where(m => m.IdMark == mark.IdMark).FirstOrDefault();
+                Criterion criterionMark = db.Criterion.Where(c => c.IdCrit == createdMark.IdCrit).FirstOrDefault();
+                if (criterionMark.CType == "Количественный")
+                {
+                    createdMark.NumMark = Int32.Parse(createdMark.MName);
+                    db.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
 
@@ -92,6 +100,13 @@ namespace MOTI.Controllers
             {
                 db.Entry(mark).State = EntityState.Modified;
                 db.SaveChanges();
+                Mark createdMark = db.Mark.Where(m => m.IdMark == mark.IdMark).FirstOrDefault();
+                Criterion criterionMark = db.Criterion.Where(c => c.IdCrit == createdMark.IdCrit).FirstOrDefault();
+                if (criterionMark.CType == "Количественный")
+                {
+                    createdMark.NumMark = Int32.Parse(createdMark.MName);
+                    db.SaveChanges();
+                }
                 return RedirectToAction("Index");
             }
             ViewBag.IdCrit = new SelectList(db.Criterion, "IdCrit", "CName", mark.IdCrit);

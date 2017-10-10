@@ -1,0 +1,50 @@
+﻿@model MOTI.Result
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Result</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Range)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Range)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AWeight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AWeight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Alternative.AName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alternative.AName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LPR.LName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LPR.LName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdRes }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -158,6 +158,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LPRsController.cs" />
     <Compile Include="Controllers\MarksController.cs" />
+    <Compile Include="Controllers\ResultsController.cs" />
     <Compile Include="Controllers\VectorsController.cs" />
     <Compile Include="Criterion.cs">
       <DependentUpon>Model.tt</DependentUpon>
@@ -280,6 +281,11 @@
     <Content Include="Views\Criteria\Details.cshtml" />
     <Content Include="Views\Criteria\Index.cshtml" />
     <Content Include="Views\Criteria\Edit.cshtml" />
+    <Content Include="Views\Results\Create.cshtml" />
+    <Content Include="Views\Results\Delete.cshtml" />
+    <Content Include="Views\Results\Details.cshtml" />
+    <Content Include="Views\Results\Edit.cshtml" />
+    <Content Include="Views\Results\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
