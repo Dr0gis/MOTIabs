@@ -1,0 +1,39 @@
+﻿@model IEnumerable<MOTI.Vector>
+
+@{
+    ViewBag.Title = "GetByCriterion";
+}
+
+<h2>GetByCriterion</h2>
+@foreach (string alternativeName in ViewBag.AlternativeNames)
+{
+    <table class="table">
+        <tr>
+            <th>
+                @alternativeName
+            </th>
+            <th>
+                Название Критерия
+            </th>
+            <th>
+                Оценка
+            </th>
+        </tr>
+
+        @foreach (var item in Model.Where(vect => vect.Alternative.AName == alternativeName))
+        {
+            <tr>
+                <td>
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mark.Criterion.CName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mark.MName)
+                </td>
+            </tr>
+        }
+
+    </table>
+}

@@ -286,6 +286,7 @@
     <Content Include="Views\Results\Details.cshtml" />
     <Content Include="Views\Results\Edit.cshtml" />
     <Content Include="Views\Results\Index.cshtml" />
+    <Content Include="Views\Alternatives\GetByCriterion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
-using MOTI;
 
 namespace MOTI.Controllers
 {
@@ -17,7 +13,70 @@ namespace MOTI.Controllers
         // GET: Alternatives
         public ActionResult Index()
         {
+            ViewBag.CriterionNames = new SelectList(db.Criterion.ToList(),"IdCrit", "CName");
             return View(db.Alternative.ToList());
+        }
+
+        public ActionResult GetByCriterion(int idCrit, string optimizationType)
+        {
+            Mark markWithValue;
+            List<Vector> vectorsForView = new List<Vector>();
+
+            Criterion criterion = db.Criterion.FirstOrDefault(x => x.IdCrit == idCrit);
+            
+            if (criterion != null)
+            {
+                int criterionId = criterion.IdCrit;
+                int markId = 1;
+                if (optimizationType == "Min")
+                {
+                    if (criterion.CType == "Количественный")
+                    {
+                        markWithValue = db.Mark.FirstOrDefault(x =>
+                            x.IdCrit == criterionId && x.NumMark == db.Mark.Where(mark => mark.IdCrit == criterionId).Min(mark => mark.NumMark));
+                        if (markWithValue != null)
+                        {
+                            markId = markWithValue.IdMark;
+                        }
+                        vectorsForView = db.Vector.Where(vect => vect.Mark.IdMark == markId).ToList();
+                    }
+                    else if (criterion.CType == "Качественный")
+                    {
+                        markWithValue = db.Mark.FirstOrDefault(x =>
+                            x.IdCrit == criterionId && x.MRange == db.Mark.Where(mark => mark.IdCrit == criterionId).Min(mark => mark.MRange));
+                        if (markWithValue != null)
+                        {
+                            markId = markWithValue.IdMark;
+                        }
+                        vectorsForView = db.Vector.Where(vect => vect.Mark.IdMark == markId).ToList();
+                    }
+                }
+                else
+                {
+                    if (criterion.CType == "Количественный")
+                    {
+                        markWithValue = db.Mark.FirstOrDefault(x =>
+                            x.IdCrit == criterionId && x.NumMark == db.Mark.Where(mark => mark.IdCrit == criterionId).Max(mark => mark.NumMark));
+                        if (markWithValue != null)
+                        {
+                            markId = markWithValue.IdMark;
+                        }
+                        vectorsForView = db.Vector.Where(vect => vect.Mark.IdMark == markId).ToList();
+                    }
+                    else if (criterion.CType == "Качественный")
+                    {
+                        markWithValue = db.Mark.FirstOrDefault(x =>
+                            x.IdCrit == criterionId && x.MRange == db.Mark.Where(mark => mark.IdCrit == criterionId).Max(mark => mark.MRange));
+                        if (markWithValue != null)
+                        {
+                            markId = markWithValue.IdMark;
+                        }
+                        vectorsForView = db.Vector.Where(vect => vect.Mark.IdMark == markId).ToList();
+                    }
+                }
+            }
+            ViewBag.AlternativeNames = vectorsForView.Select(x=> x.Alternative.AName);
+            return View(vectorsForView);
         }
 
         // GET: Alternatives/Details/5

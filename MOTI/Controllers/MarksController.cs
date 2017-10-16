@@ -20,7 +20,7 @@ namespace MOTI.Controllers
             var mark = db.Mark.Include(m => m.Criterion);
             List<string> criterionNames = db.Criterion.Select(c => c.CName).ToList();
             ViewBag.CriterionNames = criterionNames;
-            return View(mark.ToList());
+            return View(mark);
         }
 
         // GET: Marks/Details/5
@@ -58,8 +58,8 @@ namespace MOTI.Controllers
             {
                 db.Mark.Add(mark);
                 db.SaveChanges();
-                Mark createdMark = db.Mark.Where(m => m.IdMark == mark.IdMark).FirstOrDefault();
-                Criterion criterionMark = db.Criterion.Where(c => c.IdCrit == createdMark.IdCrit).FirstOrDefault();
+                Mark createdMark = db.Mark.FirstOrDefault(m => m.IdMark == mark.IdMark);
+                Criterion criterionMark = db.Criterion.FirstOrDefault(c => c.IdCrit == createdMark.IdCrit);
                 if (criterionMark.CType == "Количественный")
                 {
                     createdMark.NumMark = Int32.Parse(createdMark.MName);
@@ -100,8 +100,8 @@ namespace MOTI.Controllers
             {
                 db.Entry(mark).State = EntityState.Modified;
                 db.SaveChanges();
-                Mark createdMark = db.Mark.Where(m => m.IdMark == mark.IdMark).FirstOrDefault();
-                Criterion criterionMark = db.Criterion.Where(c => c.IdCrit == createdMark.IdCrit).FirstOrDefault();
+                Mark createdMark = db.Mark.FirstOrDefault(m => m.IdMark == mark.IdMark);
+                Criterion criterionMark = db.Criterion.FirstOrDefault(c => c.IdCrit == createdMark.IdCrit);
                 if (criterionMark.CType == "Количественный")
                 {
                     createdMark.NumMark = Int32.Parse(createdMark.MName);
