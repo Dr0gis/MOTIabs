@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
@@ -13,27 +14,55 @@ namespace MOTI.Controllers
         // GET: Alternatives
         public ActionResult Index()
         {
+            var criterions = db.Criterion.ToList();
+            ViewBag.Criterions = db.Criterion.ToList();
             ViewBag.CriterionNames = new SelectList(db.Criterion.ToList(),"IdCrit", "CName");
+            ViewBag.MarksByCriterions = new Dictionary<int, List<Mark>>();
+            foreach (var s in criterions)
+            {
+                ViewBag.MarksByCriterions[s.IdCrit] = new List<Mark>(db.Mark.Where(m => m.Criterion.IdCrit == s.IdCrit).ToList());
+            }
             return View(db.Alternative.ToList());
         }
 
-        public ActionResult GetByCriterion(int idCrit, string optimizationType)
+        public ActionResult GetByCriterion(int idCrit)
         {
             Mark markWithValue;
             List<Vector> vectorsForView = new List<Vector>();
 
             Criterion criterion = db.Criterion.FirstOrDefault(x => x.IdCrit == idCrit);
-            
+            Dictionary<int, string> limitations = new Dictionary<int, string>();
+            IQueryable marksLimited = db.Mark;
+            foreach(Criterion critTempo in db.Criterion)
+            {
+                limitations[critTempo.IdCrit] = Request.Params["Evaluated" + critTempo.IdCrit];
+                int? rangeTemp = db.Mark.First(m => m.MName == limitations[critTempo.IdCrit]).MRange;
+                if (critTempo.OptimType=="Min")
+                {
+                    if (critTempo.CType == "Качественный")
+                    {
+                        //marksLimited = marksLimited.Where(m => m.MRange >= rangeTemp)
+                    }
+                }
+                else if(critTempo.OptimType=="Max")
+                {
+
+                }
+                //написать if для мин-макса, создать список кото
+                //var marksLimited = db.Mark.Where(m => m. >= limitations[critTempo.IdCrit])
+            }
             if (criterion != null)
             {
                 int criterionId = criterion.IdCrit;
                 int markId = 1;
-                if (optimizationType == "Min")
+                List<Mark> marks = new List<Mark>();
+                if (criterion.OptimType == "Min")
                 {
                     if (criterion.CType == "Количественный")
                     {
                         markWithValue = db.Mark.FirstOrDefault(x =>
-                            x.IdCrit == criterionId && x.NumMark == db.Mark.Where(mark => mark.IdCrit == criterionId).Min(mark => mark.NumMark));
+                            x.IdCrit == criterionId && x.NumMark == db.Mark.Where(mark => mark.IdCrit == criterionId && 
+                            db.Vector.Where(v => v.IdMark == mark.IdMark).Count() > 0).Min(mark => mark.NumMark));
                         if (markWithValue != null)
                         {
                             markId = markWithValue.IdMark;
@@ -43,7 +72,8 @@ namespace MOTI.Controllers
                     else if (criterion.CType == "Качественный")
                     {
                         markWithValue = db.Mark.FirstOrDefault(x =>
-                            x.IdCrit == criterionId && x.MRange == db.Mark.Where(mark => mark.IdCrit == criterionId).Min(mark => mark.MRange));
+                            x.IdCrit == criterionId && x.MRange == db.Mark.Where(mark => mark.IdCrit == criterionId && 
+                            db.Vector.Where(v => v.IdMark == mark.IdMark).Count() > 0).Min(mark => mark.MRange));
                         if (markWithValue != null)
                         {
                             markId = markWithValue.IdMark;
@@ -51,12 +81,13 @@ namespace MOTI.Controllers
                         vectorsForView = db.Vector.Where(vect => vect.Mark.IdMark == markId).ToList();
                     }
                 }
-                else
+                else if(criterion.OptimType == "Max")
                 {
                     if (criterion.CType == "Количественный")
                     {
                         markWithValue = db.Mark.FirstOrDefault(x =>
-                            x.IdCrit == criterionId && x.NumMark == db.Mark.Where(mark => mark.IdCrit == criterionId).Max(mark => mark.NumMark));
+                            x.IdCrit == criterionId && x.NumMark == db.Mark.Where(mark => mark.IdCrit == criterionId &&
+                            db.Vector.Where(v => v.IdMark == mark.IdMark).Count() > 0).Max(mark => mark.NumMark));
                         if (markWithValue != null)
                         {
                             markId = markWithValue.IdMark;
@@ -66,7 +97,8 @@ namespace MOTI.Controllers
                     else if (criterion.CType == "Качественный")
                     {
                         markWithValue = db.Mark.FirstOrDefault(x =>
-                            x.IdCrit == criterionId && x.MRange == db.Mark.Where(mark => mark.IdCrit == criterionId).Max(mark => mark.MRange));
+                            x.IdCrit == criterionId && x.MRange == db.Mark.Where(mark => mark.IdCrit == criterionId&&
+                            db.Vector.Where(v => v.IdMark == mark.IdMark).Count() > 0).Max(mark => mark.MRange));
                         if (markWithValue != null)
                         {
                             markId = markWithValue.IdMark;
@@ -184,3 +216,4 @@ namespace MOTI.Controllers
         }
     }
 }
+

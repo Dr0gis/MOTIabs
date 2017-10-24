@@ -10,31 +10,56 @@
     @Html.ActionLink("Создать", "Create")
 </p>
 <div class="form-horizontal">
-    @using (Html.BeginForm("GetByCriterion","Alternatives"))
+    @using (Html.BeginForm("GetByCriterion", "Alternatives", FormMethod.Get))
     {
-        <h4>Выберите </h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            <label class="control-label col-md-2" for="idCrit">Название критерия</label>
-            <div class="col-md-10">
-                @Html.DropDownList("idCrit", (SelectList)ViewBag.CriterionNames, htmlAttributes: new { @class = "form-control" })
+        <div class="chooser">
+            <h4>Выберите </h4>
+            <table>
+                
+                @foreach (var crit in ViewBag.Criterions)
+                {
+                    int i = crit.IdCrit;
+                    <tr>
+                        <td>
+                            <input type="radio" value="@crit.IdCrit" name="IdCrit" />
+                            @crit.CName
+                        </td>
+                        <td>
+                            @Html.DropDownList("Evaluated" + i, new SelectList(ViewBag.MarksByCriterions[crit.IdCrit], "idMark", "MName"), htmlAttributes: new { @class = "form-control" })
+                        </td>
+                        <td>
+                            @crit.OptimType
+                        </td>
+                    </tr>
+                }
+            </table>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Найти по критерию" class="btn btn-default" />
+                </div>
             </div>
-        </div>
+            <!--@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <label class="control-label col-md-2" for="idCrit">Название критерия</label>
+                <div class="col-md-10">
+                    @Html.DropDownList("idCrit", (SelectList)ViewBag.CriterionNames, htmlAttributes: new { @class = "form-control" })
+                </div>
+            </div>
 
-        <div class="form-group">
-            <label class="control-label col-md-2" for="optimizationType">Тип Оптимизации</label>
-            <div class="col-md-10">
-                @Html.DropDownList("optimizationType", new SelectList(new List<string>(){"Min","Max"}), htmlAttributes: new { @class = "form-control" })
+            <div class="form-group">
+                <label class="control-label col-md-2" for="optimizationType">Тип Оптимизации</label>
+                <div class="col-md-10">
+                    @Html.DropDownList("optimizationType", new SelectList(new List<string>() { "Min", "Max" }), htmlAttributes: new { @class = "form-control" })
+                </div>
             </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Найти по критерию" class="btn btn-default" />
+                </div>
+            </div>-->
         </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Найти по критерию" class="btn btn-default" />
-            </div>
-        </div>
-    }
-</div>
+        }
+    </div>
 <table class="table">
     <tr>
         <th>

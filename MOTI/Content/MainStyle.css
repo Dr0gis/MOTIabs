@@ -1,53 +1,80 @@
+/* line 5, MainStyle.scss */
 .btn {
   border-radius: 0px;
+  -webkit-transition: 0.5s all;
   transition: 0.5s all; }
 
+/* line 11, MainStyle.scss */
 .form-group input {
   border-radius: 0px; }
+/* line 15, MainStyle.scss */
 .form-group select {
   width: 100%;
   padding: 6px 12px;
   border: 1px solid #cccccc;
   border-radius: 0px; }
 
+/* line 24, MainStyle.scss */
 .jumbotron h1 {
   font-size: 43px; }
 
+/* line 29, MainStyle.scss */
 .navbar {
   background-color: #434855; }
+  /* line 33, MainStyle.scss */
   .navbar .navbar-header a {
     color: #dce6e8;
     border-bottom: 3px solid #434855;
     border-top: 3px solid #434855; }
+  /* line 39, MainStyle.scss */
   .navbar .navbar-header .navbar-toggle {
     color: #dce6e8;
     background-color: #428bca;
     border-radius: 0px;
     padding-left: 40px;
     padding-right: 40px;
+    -webkit-transition: 0.5s all;
     transition: 0.5s all; }
+    /* line 47, MainStyle.scss */
     .navbar .navbar-header .navbar-toggle:hover, .navbar .navbar-header .navbar-toggle:focus {
       background-color: #3276b1; }
+  /* line 55, MainStyle.scss */
   .navbar li a {
     color: #dce6e8;
     border-bottom: 3px solid #434855;
     border-top: 3px solid #434855;
+    -webkit-transition: 0.5s all;
     transition: 0.5s all; }
+    /* line 61, MainStyle.scss */
     .navbar li a:hover, .navbar li a:focus {
       background-color: #333845;
       border-bottom: 3px solid #0072bc; }
 
+/* line 69, MainStyle.scss */
 .select-marks {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   padding-bottom: 15px; }
+  /* line 78, MainStyle.scss */
   .select-marks span {
     padding: 10px; }
 
+/* line 82, MainStyle.scss */
 .disabled {
   display: none; }
 
+/* line 86, MainStyle.scss */
 .modal-content {
   border-radius: 0px; }
+
+/* line 90, MainStyle.scss */
+.chooser {
+  border: 1px solid #cccccc;
+  padding: 20px; }
 
 /*# sourceMappingURL=MainStyle.css.map */

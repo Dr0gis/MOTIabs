@@ -5,12 +5,11 @@
 }
 
 <h2>GetByCriterion</h2>
-@foreach (string alternativeName in ViewBag.AlternativeNames)
-{
+
     <table class="table">
         <tr>
             <th>
-                @alternativeName
+                Альтернатива
             </th>
             <th>
                 Название Критерия
@@ -19,12 +18,13 @@
                 Оценка
             </th>
         </tr>
-
-        @foreach (var item in Model.Where(vect => vect.Alternative.AName == alternativeName))
+    @foreach (string alternativeName in ViewBag.AlternativeNames)
+    {
+        foreach (var item in Model.Where(vect => vect.Alternative.AName == alternativeName))
         {
             <tr>
                 <td>
-
+                    @alternativeName
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Mark.Criterion.CName)
@@ -34,6 +34,5 @@
                 </td>
             </tr>
         }
-
+    }
     </table>
-}
