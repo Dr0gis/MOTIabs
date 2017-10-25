@@ -130,6 +130,11 @@ namespace MOTI.Controllers
             return View(vectorsForView);
         }
 
+        public ActionResult SelectingBest()
+        {
+            return View(db.Alternative.ToList());
+        }
+
         private int compareMarks(Mark mark1, Mark mark2)
         {
             if (mark1.Criterion.OptimType == "Min")

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<MOTI.Alternative>
+
+@{
+    ViewBag.Title = "SelectingBest";
+    String block = "block";
+}
+
+<h2>SelectingBest</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="field">
+            @foreach (var item in Model)
+            {
+                <div class="block" id="@block@item.IdAlt">
+                    @Html.DisplayFor(modelItem => item.AName)
+                    
+                    <a id="@item.IdAlt" class="btn btn-primary btn-lg select-alt">Выбрать</a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+
+        $(document).ready(function() {
+            var blocks = $(".block");
+            blocks.css("display", "none");
+            blocks.eq(0).css("display", "flex");
+            blocks.eq(1).css("display", "flex");
+
+            var count = 2;
+            var arrCur = [blocks.eq(0).attr("id"), blocks.eq(1).attr("id")];
+
+            var buttonsSelect = $(".select-alt");
+            buttonsSelect.click(function () {
+                var hidedElementId;
+                var indexHided;
+                for (var i = 0; i < arrCur.length; ++i) {
+                    if (arrCur[i] != "block" + this.id) {
+                        hidedElementId = arrCur[i];
+                        indexHided = i;
+                    }
+                }
+
+                hidedBlock = $("#" + hidedElementId);
+                hidedBlock.css("display", "none");
+                blocks.eq(count).css("display", "flex");
+                arrCur[indexHided] = blocks.eq(count++).attr("id");
+            });
+        });
+
+        
+
+    </script>
+}

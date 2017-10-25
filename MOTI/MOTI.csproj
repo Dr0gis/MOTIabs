@@ -287,6 +287,7 @@
     <Content Include="Views\Results\Edit.cshtml" />
     <Content Include="Views\Results\Index.cshtml" />
     <Content Include="Views\Alternatives\GetByCriterion.cshtml" />
+    <Content Include="Views\Alternatives\SelectingBest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
