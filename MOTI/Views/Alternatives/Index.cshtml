@@ -15,19 +15,23 @@
         <div class="chooser">
             <h4>Выберите </h4>
             <table>
-                
+                <tr>
+                    <th>Критерий</th>
+                    <th>Ограничение</th>
+                    <th>Оптимальность</th>
+                </tr>
                 @foreach (var crit in ViewBag.Criterions)
                 {
                     int i = crit.IdCrit;
                     <tr>
                         <td>
-                            <input type="radio" value="@crit.IdCrit" name="IdCrit" />
+                            <input type="radio" value="@crit.IdCrit" name="IdCrit"/>
                             @crit.CName
                         </td>
                         <td>
-                            @Html.DropDownList("Evaluated" + i, new SelectList(ViewBag.MarksByCriterions[crit.IdCrit], "idMark", "MName"), htmlAttributes: new { @class = "form-control" })
+                            @Html.DropDownList("Evaluated" + i, new SelectList(ViewBag.MarksByCriterions[crit.IdCrit], "idMark", "MName"), htmlAttributes: new {@class = "form-control"})
                         </td>
-                        <td>
+                        <td class="optim">
                             @crit.OptimType
                         </td>
                     </tr>

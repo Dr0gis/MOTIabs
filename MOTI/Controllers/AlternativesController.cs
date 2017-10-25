@@ -27,88 +27,162 @@ namespace MOTI.Controllers
 
         public ActionResult GetByCriterion(int idCrit)
         {
-            Mark markWithValue;
-            List<Vector> vectorsForView = new List<Vector>();
-
-            Criterion criterion = db.Criterion.FirstOrDefault(x => x.IdCrit == idCrit);
-            Dictionary<int, string> limitations = new Dictionary<int, string>();
-            IQueryable marksLimited = db.Mark;
-            foreach(Criterion critTempo in db.Criterion)
+            Dictionary<int, int> limitations = new Dictionary<int, int>();
+            foreach(Criterion crit in db.Criterion)
             {
-                limitations[critTempo.IdCrit] = Request.Params["Evaluated" + critTempo.IdCrit];
-                int? rangeTemp = db.Mark.First(m => m.MName == limitations[critTempo.IdCrit]).MRange;
-                if (critTempo.OptimType=="Min")
-                {
-                    if (critTempo.CType == "Качественный")
-                    {
-                        //marksLimited = marksLimited.Where(m => m.MRange >= rangeTemp)
-                    }
-                }
-                else if(critTempo.OptimType=="Max")
-                {
-
-                }
-                //написать if для мин-макса, создать список кото
-                //var marksLimited = db.Mark.Where(m => m. >= limitations[critTempo.IdCrit])
+                limitations.Add(crit.IdCrit, Convert.ToInt32(Request.Params["Evaluated" + crit.IdCrit]));
             }
-            if (criterion != null)
+
+            List<Vector> allVectors = db.Vector.ToList();
+            Dictionary<int, List<Vector>> vectorAlternativesDictionary = new Dictionary<int, List<Vector>>();
+            foreach (Alternative alternative in db.Alternative)
             {
-                int criterionId = criterion.IdCrit;
-                int markId = 1;
-                List<Mark> marks = new List<Mark>();
-                if (criterion.OptimType == "Min")
+                List<Vector> vectorsByAlt = allVectors.Where(v => v.IdAlt == alternative.IdAlt).ToList();
+                vectorAlternativesDictionary.Add(alternative.IdAlt, vectorsByAlt);
+            }
+
+            Criterion mainCriterion = db.Criterion.FirstOrDefault(x => x.IdCrit == idCrit);
+
+            List<int> idsAltToDelete = new List<int>();
+            foreach (int idAlt in vectorAlternativesDictionary.Keys)
+            {
+                foreach (Vector vector in vectorAlternativesDictionary[idAlt])
                 {
-                    if (criterion.CType == "Количественный")
+                    if (vector.Mark.IdCrit == mainCriterion.IdCrit)
                     {
-                        markWithValue = db.Mark.FirstOrDefault(x =>
-                            x.IdCrit == criterionId && x.NumMark == db.Mark.Where(mark => mark.IdCrit == criterionId && 
-                            db.Vector.Where(v => v.IdMark == mark.IdMark).Count() > 0).Min(mark => mark.NumMark));
-                        if (markWithValue != null)
-                        {
-                            markId = markWithValue.IdMark;
-                        }
-                        vectorsForView = db.Vector.Where(vect => vect.Mark.IdMark == markId).ToList();
+                        continue;
                     }
-                    else if (criterion.CType == "Качественный")
+                    int idLimitMark = limitations[vector.Mark.IdCrit];
+                    if (vector.Mark.Criterion.OptimType == "Min")
                     {
-                        markWithValue = db.Mark.FirstOrDefault(x =>
-                            x.IdCrit == criterionId && x.MRange == db.Mark.Where(mark => mark.IdCrit == criterionId && 
-                            db.Vector.Where(v => v.IdMark == mark.IdMark).Count() > 0).Min(mark => mark.MRange));
-                        if (markWithValue != null)
+                        if (vector.Mark.Criterion.CType == "Количественный")
                         {
-                            markId = markWithValue.IdMark;
+                            if (vector.Mark.NumMark > db.Mark.FirstOrDefault(m => m.IdMark == idLimitMark)?.NumMark)
+                            {
+                                idsAltToDelete.Add(idAlt);
+                                break;
+                            }
                         }
-                        vectorsForView = db.Vector.Where(vect => vect.Mark.IdMark == markId).ToList();
+                        else if (vector.Mark.Criterion.CType == "Качественный")
+                        {
+                            if (vector.Mark.MRange > db.Mark.FirstOrDefault(m => m.IdMark == idLimitMark)?.MRange)
+                            {
+                                idsAltToDelete.Add(idAlt);
+                                break;
+                            }
+                        }
                     }
-                }
-                else if(criterion.OptimType == "Max")
-                {
-                    if (criterion.CType == "Количественный")
+                    else if (vector.Mark.Criterion.OptimType == "Max")
                     {
-                        markWithValue = db.Mark.FirstOrDefault(x =>
-                            x.IdCrit == criterionId && x.NumMark == db.Mark.Where(mark => mark.IdCrit == criterionId &&
-                            db.Vector.Where(v => v.IdMark == mark.IdMark).Count() > 0).Max(mark => mark.NumMark));
-                        if (markWithValue != null)
+                        if (vector.Mark.Criterion.CType == "Количественный")
                         {
-                            markId = markWithValue.IdMark;
+                            if (vector.Mark.NumMark < db.Mark.FirstOrDefault(m => m.IdMark == idLimitMark)?.NumMark)
+                            {
+                                idsAltToDelete.Add(idAlt);
+                                break;
+                            }
                         }
-                        vectorsForView = db.Vector.Where(vect => vect.Mark.IdMark == markId).ToList();
-                    }
-                    else if (criterion.CType == "Качественный")
-                    {
-                        markWithValue = db.Mark.FirstOrDefault(x =>
-                            x.IdCrit == criterionId && x.MRange == db.Mark.Where(mark => mark.IdCrit == criterionId&&
-                            db.Vector.Where(v => v.IdMark == mark.IdMark).Count() > 0).Max(mark => mark.MRange));
-                        if (markWithValue != null)
+                        else if (vector.Mark.Criterion.CType == "Качественный")
                         {
-                            markId = markWithValue.IdMark;
+                            if (vector.Mark.MRange < db.Mark.FirstOrDefault(m => m.IdMark == idLimitMark)?.MRange)
+                            {
+                                idsAltToDelete.Add(idAlt);
+                                break;
+                            }
                         }
-                        vectorsForView = db.Vector.Where(vect => vect.Mark.IdMark == markId).ToList();
                     }
                 }
             }
-            ViewBag.AlternativeNames = vectorsForView.Select(x=> x.Alternative.AName);
+
+            foreach (int idAlt in idsAltToDelete)
+            {
+                vectorAlternativesDictionary.Remove(idAlt);
+            }
+
+            Dictionary<int, Mark> sortOrder = new Dictionary<int, Mark>();
+
+            foreach (int idAlt in vectorAlternativesDictionary.Keys)
+            {
+                sortOrder.Add(idAlt, vectorAlternativesDictionary[idAlt].FirstOrDefault(x => x.Mark.IdCrit == mainCriterion.IdCrit).Mark);
+            }
+
+            List<int> resultAlt = new List<int>();
+            Mark maxMark = sortOrder.FirstOrDefault().Value;
+            foreach (var markValue in sortOrder.Values)
+            {
+                if (compareMarks(maxMark, markValue) == -1)
+                {
+                    maxMark = markValue;
+                }
+            }
+
+            foreach (var pair in sortOrder)
+            {
+                if (compareMarks(maxMark, pair.Value) == 0)
+                {
+                    resultAlt.Add(pair.Key);
+                }
+            }
+
+            List<Vector> vectorsForView = db.Vector.Where(v => resultAlt.Contains(v.IdAlt)).ToList();
+
+            ViewBag.AlternativeNames = db.Alternative.Where(a => resultAlt.Contains(a.IdAlt)).Select(a => a.AName).ToList();
             return View(vectorsForView);
+        }
+
+        private int compareMarks(Mark mark1, Mark mark2)
+        {
+            if (mark1.Criterion.OptimType == "Min")
+            {
+                if (mark1.Criterion.CType == "Количественный")
+                {
+                    if (mark1.NumMark < mark2.NumMark)
+                    {
+                        return 1;
+                    }
+                    if (mark1.NumMark > mark2.NumMark)
+                    {
+                        return -1;
+                    }
+                }
+                else if (mark1.Criterion.CType == "Качественный")
+                {
+                    if (mark1.MRange < mark2.MRange)
+                    {
+                        return 1;
+                    }
+                    if (mark1.MRange > mark2.MRange)
+                    {
+                        return -1;
+                    }
+                }
+            }
+            if (mark1.Criterion.OptimType == "Max")
+            {
+                if (mark1.Criterion.CType == "Количественный")
+                {
+                    if (mark1.NumMark > mark2.NumMark)
+                    {
+                        return 1;
+                    }
+                    if (mark1.NumMark < mark2.NumMark)
+                    {
+                        return -1;
+                    }
+                }
+                else if (mark1.Criterion.CType == "Качественный")
+                {
+                    if (mark1.MRange > mark2.MRange)
+                    {
+                        return 1;
+                    }
+                    if (mark1.MRange < mark2.MRange)
+                    {
+                        return -1;
+                    }
+                }
+            }
+            return 0;
         }
 
         // GET: Alternatives/Details/5

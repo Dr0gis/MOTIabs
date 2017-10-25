@@ -76,5 +76,14 @@
 .chooser {
   border: 1px solid #cccccc;
   padding: 20px; }
+  /* line 95, MainStyle.scss */
+  .chooser table td, .chooser table th {
+    padding: 10px; }
+  /* line 99, MainStyle.scss */
+  .chooser table .optim {
+    text-align: center; }
+  /* line 103, MainStyle.scss */
+  .chooser table th {
+    text-align: center; }
 
 /*# sourceMappingURL=MainStyle.css.map */
