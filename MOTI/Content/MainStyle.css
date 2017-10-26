@@ -92,8 +92,12 @@
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap; }
-  /* line 113, MainStyle.scss */
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%; }
+  /* line 115, MainStyle.scss */
   .field .block {
     padding: 10px;
     width: 40%;
@@ -104,5 +108,37 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column; }
+    /* line 121, MainStyle.scss */
+    .field .block h3 {
+      text-align: center; }
+    /* line 125, MainStyle.scss */
+    .field .block table {
+      width: 100%;
+      margin-bottom: 10px; }
+      /* line 129, MainStyle.scss */
+      .field .block table tr {
+        border: 1px solid #cccccc; }
+      /* line 133, MainStyle.scss */
+      .field .block table td, .field .block table th {
+        padding: 5px; }
+
+/* line 140, MainStyle.scss */
+.selecting-best {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  /* line 146, MainStyle.scss */
+  .selecting-best .restart-btn {
+    width: 400px; }
 
 /*# sourceMappingURL=MainStyle.css.map */

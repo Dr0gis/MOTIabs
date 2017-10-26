@@ -8,22 +8,22 @@
 <h2>SelectingBest</h2>
 
 <div class="container">
-    <div class="row">
+    <div class="row selecting-best">
         <div class="field">
             @foreach (var item in Model)
             {
                 <div class="block" id="@block@item.IdAlt">
-                    @Html.DisplayFor(modelItem => item.AName)
+                    <h3>@Html.DisplayFor(modelItem => item.AName)</h3>
                     <table>
+                        <tr>
+                            <th>Критерий</th>
+                            <th>Оценка</th>
+                        </tr>
                         @foreach (Vector elem in ViewBag.vectorsOfAlternatives[item.IdAlt])
                         {
                             <tr>
-                                <td>
-                                    @elem.Mark.Criterion.CName
-                                </td>
-                                <td>
-                                    @elem.Mark.MName
-                                </td>
+                                <td>@elem.Mark.Criterion.CName</td>
+                                <td>@elem.Mark.MName</td>
                             </tr>
                         }
                     </table>
@@ -31,6 +31,7 @@
                 </div>
             }
         </div>
+        <a class="btn btn-success btn-lg restart-btn" href="">Начать заного</a>
     </div>
 </div>
 

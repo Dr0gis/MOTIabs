@@ -109,11 +109,41 @@
 .field {
     display: flex;
     flex-wrap: wrap;
-    
+    justify-content: center;
+    width: 100%;
+
     .block {
         padding: 10px;
         width: 40%;
         display: flex;
         flex-direction: column;
+        
+        h3 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            margin-bottom: 10px;
+
+            tr {
+                border: 1px solid #cccccc;
+            }
+
+            td, th {
+                padding: 5px;
+            }
+        }
+    }
+}
+
+.selecting-best {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .restart-btn {
+        width: 400px;
     }
 }
