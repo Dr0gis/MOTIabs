@@ -13,7 +13,8 @@
     @using (Html.BeginForm("GetByCriterion", "Alternatives", FormMethod.Get))
     {
         <div class="chooser">
-            <h4>Выберите </h4>
+            <h4>Отметьте главный критерий слева от названия</h4>
+            <h5>Установите ограничения для остальных критериев</h5>
             <table>
                 <tr>
                     <th>Критерий</th>
@@ -25,11 +26,12 @@
                     int i = crit.IdCrit;
                     <tr>
                         <td>
-                            <input type="radio" value="@crit.IdCrit" name="IdCrit"/>
+                            <input type="radio" class="critRadio" value="@crit.IdCrit" name="IdCrit"/>
                             @crit.CName
                         </td>
                         <td>
-                            @Html.DropDownList("Evaluated" + i, new SelectList(ViewBag.MarksByCriterions[crit.IdCrit], "idMark", "MName"), htmlAttributes: new {@class = "form-control"})
+                            @Html.DropDownList("Evaluated" + i, new SelectList(ViewBag.MarksByCriterions[crit.IdCrit], "idMark", "MName"), 
+                                                htmlAttributes: new {@class = "form-control mark-selector", @id = "select" + crit.IdCrit})
                         </td>
                         <td class="optim">
                             @crit.OptimType
@@ -53,7 +55,8 @@
             <div class="form-group">
                 <label class="control-label col-md-2" for="optimizationType">Тип Оптимизации</label>
                 <div class="col-md-10">
-                    @Html.DropDownList("optimizationType", new SelectList(new List<string>() { "Min", "Max" }), htmlAttributes: new { @class = "form-control" })
+                    @Html.DropDownList("optimizationType", new SelectList(new List<string>() { "Min", "Max" }), 
+                                       htmlAttributes: new { @class = "form-control" })
                 </div>
             </div>
             <div class="form-group">
@@ -88,3 +91,17 @@
 }
 
 </table>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var allRadioButtons = $(".critRadio");
+            allRadioButtons.click(function () {
+                $(".mark-selector").removeAttr("disabled");
+                var selectId = $(this).val();
+                var select = $("#select" + selectId);
+                select.attr("disabled", "disabled");
+            })
+        })
+    </script>
+}

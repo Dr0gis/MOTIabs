@@ -20,7 +20,15 @@ namespace MOTI.Controllers
             ViewBag.MarksByCriterions = new Dictionary<int, List<Mark>>();
             foreach (var s in criterions)
             {
-                ViewBag.MarksByCriterions[s.IdCrit] = new List<Mark>(db.Mark.Where(m => m.Criterion.IdCrit == s.IdCrit).ToList());
+                bool isQuantitative = (s.CType == "Количественный");
+                if (s.OptimType == "Max")
+                {
+                    ViewBag.MarksByCriterions[s.IdCrit] = new List<Mark>(db.Mark.Where(m => m.Criterion.IdCrit == s.IdCrit).OrderBy(x => isQuantitative ? x.NumMark : x.MRange).ToList());
+                }
+                else if (s.OptimType == "Min")
+                {
+                    ViewBag.MarksByCriterions[s.IdCrit] = new List<Mark>(db.Mark.Where(m => m.Criterion.IdCrit == s.IdCrit).OrderByDescending(x => isQuantitative ? x.NumMark : x.MRange).ToList());
+                }
             }
             return View(db.Alternative.ToList());
         }
@@ -132,6 +140,14 @@ namespace MOTI.Controllers
 
         public ActionResult SelectingBest()
         {
+            Dictionary<int, List<Vector>> vectors = new Dictionary<int, List<Vector>>();
+            foreach (Alternative alt in db.Alternative)
+            {
+                List<Vector> vectorsForAlt = db.Vector.Where(v => v.IdAlt == alt.IdAlt).ToList();
+                vectors.Add(alt.IdAlt, vectorsForAlt);
+            }
+
+            ViewBag.vectorsOfAlternatives = vectors;
             return View(db.Alternative.ToList());
         }
 
