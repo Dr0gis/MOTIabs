@@ -1,11 +1,11 @@
 ﻿@model IEnumerable<MOTI.Alternative>
 
 @{
-    ViewBag.Title = "SelectingBest";
+    ViewBag.Title = "Choose Best";
     String block = "block";
 }
 
-<h2>SelectingBest</h2>
+<h2 id="SelectingBestHeader">Choose your destiny!</h2>
 
 <div class="container">
     <div class="row selecting-best">
@@ -31,7 +31,7 @@
                 </div>
             }
         </div>
-        <a class="btn btn-success btn-lg restart-btn" href="">Начать заного</a>
+        <a class="btn btn-success btn-lg restart-btn" href="">Начать заново</a>
     </div>
 </div>
 
@@ -63,6 +63,13 @@
                 hidedBlock.css("display", "none");
                 blocks.eq(count).css("display", "flex");
                 arrCur[indexHided] = blocks.eq(count++).attr("id");
+
+                if (count - 1 == blocks.length)
+                {
+                    $(this).css("display", "none");
+                    $("#SelectingBestHeader").css("text-align", "center");
+                    $("#SelectingBestHeader").text("And the winner is");
+                }
             });
         });
 
