@@ -60,13 +60,13 @@
                 }
 
                 hidedBlock = $("#" + hidedElementId);
-                hidedBlock.css("display", "none");
-                blocks.eq(count).css("display", "flex");
+                hidedBlock.hide(500);
+                blocks.eq(count).show(500);
                 arrCur[indexHided] = blocks.eq(count++).attr("id");
 
                 if (count - 1 == blocks.length)
                 {
-                    $(this).css("display", "none");
+                    $(this).hide(500);
                     $("#SelectingBestHeader").css("text-align", "center");
                     $("#SelectingBestHeader").text("And the winner is");
                 }
